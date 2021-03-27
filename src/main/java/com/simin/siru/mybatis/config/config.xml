@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<typeAliases>
+		<typeAlias type="com.simin.siru.model.domain.Member" alias="Member"/>
+		<typeAlias type="com.simin.siru.model.domain.Story" alias="Story"/>
+		<typeAlias type="com.simin.siru.model.domain.Comment" alias="Comment"/>
+	</typeAliases>
+	<mappers>
+		<mapper resource="com/simin/siru/mybatis/mapper/MemberMapper.xml"/>
+		<mapper resource="com/simin/siru/mybatis/mapper/StoryMapper.xml"/>
+		<mapper resource="com/simin/siru/mybatis/mapper/CommentMapper.xml"/>
+	</mappers>
+</configuration>

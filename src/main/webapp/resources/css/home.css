@@ -1,0 +1,189 @@
+/* 첫 화면에서 보여질 작품 */
+#main {
+	padding-top: 80px;
+	overflow: hidden;
+}
+#main #talk {
+	float: left;
+}
+#main #talk h2 {
+	font-weight: bold;
+	font-size: 60px;
+	line-height: 100px;
+	padding-bottom: 30px;
+}
+#main #talk p {
+	font-size: 20px;
+	line-height: 40px;
+}
+#main #poem {
+	padding-top: 300px;
+	padding-bottom: 100px;
+	float: right;
+	width: 35%;
+}
+#main #poem h2 {
+	font-size: 50px;
+	padding-bottom: 30px;
+}
+#main #poem p {
+	line-height: 50px;
+}
+#main #poem span {
+	display: block;
+	margin-top: 50px;
+}
+
+/* 공감을 많이 받은 글 */
+#best {
+	overflow: hidden;
+	margin: auto;
+	margin-bottom: 250px;
+}
+#best h2 {
+	font-size: 40px;
+	font-weight: normal;
+	margin: 120px 0;
+}
+#best h3 {
+	display: inline;
+	padding-left: 20px;
+	margin-bottom: 20px;
+	float: left;
+	font-weight: normal;
+}
+#best a {
+	margin-right: 15px;
+}
+#best_poem, #best_story {
+	width: 40%;
+}
+#best_poem {
+	float: left;
+}
+#best_story {
+	float: right;
+}
+#best table {
+	border-collapse: collapse;
+	width: 100%;
+	height: 100%;
+}
+#best table th, td {
+	position: relative;
+	text-align: left;
+	padding: 16px;
+}
+#best span {
+	position: absolute;
+	bottom: 7px;
+	right: 13px;
+	font-size: 10px;
+}
+#best table tr:nth-child(odd) {
+	border-top: 1px solid #fbbd0d;
+	border-bottom: 1px solid #fbbd0d;
+}
+
+/* 시루 소개글 - 탄생 배경/사용법 */
+#intro {
+	margin: 50px 0;
+	overflow: hidden;
+	line-height: 40px;
+}
+#intro h4 {
+	font-size: 30px;
+	font-weight: normal;
+	margin: 50px 0;
+}
+#intro #birth {
+	width: 100%;
+	padding-bottom: 100px;
+}
+#intro #menual {
+	width: 40%;
+	float: right;
+}
+
+/* 회원가입/로그인 폼 */
+#start {
+	margin-top: 350px;
+	height: 750px;
+	width: 100%;
+	text-align: center;
+}
+#start h3 {
+	font-size: 40px;
+	font-weight: normal;
+	color: #faf5e6;
+	margin-bottom: 100px;
+}
+#start #login {
+	float: left;
+	width: 40%;
+}
+#start #regist {
+	float: right;
+	width: 40%;
+}
+#start input[type=text], #start input[type=password] {
+	width: 100%;
+	padding: 15px;
+	margin: 5px 0 22px 0;
+	display: inline-block;
+	border: none;
+	background: #f1f1f1;
+	border-radius: 5px;
+}
+#start input[type=text]:focus, #start input[type=password]:focus {
+	background-color: #ddd;
+	outline: none;
+}
+#start button {
+	background-color: #fbbd0d;
+	padding: 14px 20px;
+	border: none;
+	width: 50%;
+	opacity: 0.9;
+	border-radius: 5px;
+	font-size: 16px;
+}
+#start button:hover {
+	opacity: 1;
+	transition: 0.2s;
+}
+
+#start #login #find_area {
+	padding-top: 30px;
+}
+
+#start #login #find_area a:hover {
+	color: #fbbd0d;
+	transition: 0.2s;
+}
+
+#start #login #find_area #find_id {
+	display: none;
+	padding-bottom: 30px;
+}
+
+#start #login #find_area #change_password {
+	display: none;
+	padding-bottom: 30px;
+}
+
+#start #login #find_area #find_guide, #change_guide {
+	border: 1px solid #fbbd0d;
+	margin: 20px 0;
+	padding: 20px;
+}
+
+
+
+
+
+
+
+
+
+

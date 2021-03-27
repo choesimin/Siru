@@ -1,0 +1,72 @@
+#writing h2 {
+	padding: 30px 0;
+}
+
+#writing #writer { 
+	float: right;
+	font-size:16px;
+}
+
+#writing #regdate { 
+	float: right;
+	font-size:14px;
+}
+
+#writing #content {
+	line-height: 35px;
+	padding-top: 20px;
+	padding-bottom: 70px;
+}
+
+#comment_table {
+	width: 100%;
+	border-top: 1px solid #fbbd0d;
+	border-collapse: collapse;
+	font-size: 16px;
+	margin-bottom: 100px;
+}
+
+#comment_table td {
+	border-bottom: 1px solid #fbbd0d4d;
+	padding: 10px;
+}
+
+#comment_table tr td:nth-child(1) {
+	width: 10%;
+}
+#comment_table tr td:nth-child(2) {
+	width: 70%;
+}
+#comment_table tr td:nth-child(3) {
+	width: 20%;
+}
+
+#comment_table tr:last-child td {
+	border: none;
+}
+
+#comment_table #regist_button {
+	padding: 10px 20px;
+	background-color: #2d2c2e;
+    color: #faf5e6;
+	border: 1px solid #fbbd0d4d;
+}
+#comment_table #regist_button:hover {
+	transition: 0.2s;
+    color: #fbbd0d;
+	border: 1px solid #fbbd0d;
+}
+
+#comment_table textarea {
+	width: 100%;
+	resize: vertical;
+    color: #faf5e6;
+	background-color: #2d2c2e;
+	border-radius: none;
+}
+
+#comment_list {
+	border-top: 1px solid #fbbd0d4d;
+}
+
+

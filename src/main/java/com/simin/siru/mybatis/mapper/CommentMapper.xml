@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Comment">
+
+	<insert id="insert" parameterType="Comment">
+		insert into comment(member_id, story_id, content)
+		values(#{member_id}, #{story_id}, #{content})
+	</insert>
+	
+	<sql id="selectCommon">
+		select comment_id, member_id, story_id, content, date from comment
+	</sql>
+	
+	<resultMap type="Comment" id="commentMemberMap">
+		<id column="comment_id" property="comment_id"/>
+		<result column="member_id" property="member_id"/>
+		<result column="story_id" property="story_id"/>
+		<result column="content" property="content"/>
+		<result column="date" property="date"/>
+		<association column="member_id" property="member" javaType="Member" select="Member.select"/>
+	</resultMap>
+	
+	<select id="selectByStoryId" parameterType="int" resultMap="commentMemberMap">
+		<include refid="selectCommon"/>
+		where story_id = #{story_id}
+	</select>
+
+</mapper>
