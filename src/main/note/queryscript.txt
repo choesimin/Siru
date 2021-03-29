@@ -4,11 +4,11 @@ sudo apt-get install mysql-server
 
 sudo /usr/bin/mysql -u root -p
 
-alter user 'root'@'localhost' identified by '1010';
+alter user 'root'@'localhost' identified by '0101';
 
 create database siru;
 
-create user 'siru'@'localhost' identified by '1010';
+create user 'siru'@'localhost' identified by '0101';
 
 flush privileges;
 

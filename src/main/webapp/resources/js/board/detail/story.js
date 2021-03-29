@@ -1,3 +1,14 @@
+function updateStory() {
+	console.log("update");
+}
+
+function deleteStory() {
+	if (confirm("글을 지우시겠습니까?")) {
+		
+	}
+}
+
+
 function registComment() {
 	var member_id = $("#member_id");
 	var story_id = $("#story_id");
@@ -45,7 +56,7 @@ function getCommentList() {
 				tag += responseJson[i].content;
 				tag += "</td>";
 				tag += "<td>";
-				tag += responseJson[i].date;
+				tag += responseJson[i].date.substring(5, 16);
 				tag += "</td>";
 				tag += "</tr>";
 			}
@@ -57,6 +68,14 @@ function getCommentList() {
 
 $(function() {
 	getCommentList();
+	
+	$("#update_button").on("click", function() {
+		updateStory();
+	});
+
+	$("#delete_button").on("click", function() {
+		deleteStory();
+	});
 	
 	$("#regist_button").on("click", function() {
 		registComment();

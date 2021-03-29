@@ -19,8 +19,7 @@
 	<div id="wrapper">
 		<div id="main">
 			<div id="talk">
-				<h2><span class="color_yellow font_weight_bolder">시</span>가<br/>머무는 곳</h2>
-				<p><span class="color_yellow">열</span>심히 해보쟈</p>
+				<h2><span class="color_yellow font_weight_bolder">시</span>와 <span class="color_yellow font_weight_bolder">글</span>이<br/>모이는 곳</h2>
 			</div>
 			<div id="poem">
 				<h2 class="color_yellow">하루</h2>
