@@ -45,7 +45,7 @@
         			<textarea id="comment"></textarea>
         		</td>
         		<td>
-        			<button id="regist_button">댓글</button>
+        			<button id="comment_regist_button">댓글</button>
         		</td>
         	</tr>
         	<%} %>

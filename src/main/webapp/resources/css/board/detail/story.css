@@ -62,13 +62,13 @@
 	border: none;
 }
 
-#comment_table #regist_button {
+#comment_table #comment_regist_button {
 	padding: 10px 20px;
 	background-color: #2d2c2e;
     color: #faf5e6;
 	border: 1px solid #faf5e64d;
 }
-#comment_table #regist_button:hover {
+#comment_table #comment_regist_button:hover {
 	transition: 0.2s;
     color: #fbbd0d;
 	border: 1px solid #fbbd0d;
@@ -86,4 +86,16 @@
 	border-top: 1px solid #fbbd0d4d;
 }
 
+#comment_list .comment_delete_button {
+	float: right;
+	padding: 3px 3px;
+	background-color: #2d2c2e;
+    color: #faf5e6;
+	border: 1px solid #faf5e64d;
+}
 
+#comment_list .comment_delete_button:hover {
+	transition: 0.2s;
+    color: #fbbd0d;
+	border: 1px solid #fbbd0d;
+}

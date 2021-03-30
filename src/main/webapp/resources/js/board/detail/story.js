@@ -40,6 +40,7 @@ function registComment() {
 function getCommentList() {
 	var comment_list = $("#comment_list");
 	var story_id = $("#story_id");
+	var member_id = $("#member_id");
 	
 	$.ajax({
 		url : "/rest/comment/list",
@@ -57,10 +58,13 @@ function getCommentList() {
 				tag += responseJson[i].member.nickname;
 				tag += "</td>";
 				tag += "<td>";
-				tag += responseJson[i].content;
+				tag += "<pre>" + responseJson[i].content + "</pre>";
 				tag += "</td>";
 				tag += "<td>";
 				tag += responseJson[i].date.substring(5, 16);
+				if (responseJson[i].member.member_id == member_id.val()) {
+					tag += "<button type=\"button\" value=\"" + responseJson[i].comment_id + "\" onclick=\"deleteComment(this)\" class=\"comment_delete_button\">×</button>";
+				}
 				tag += "</td>";
 				tag += "</tr>";
 			}
@@ -68,6 +72,10 @@ function getCommentList() {
 			comment_list.html(tag);
 		}
 	});
+}
+
+function deleteComment(obj) {
+	console.log(obj.value);
 }
 
 $(function() {
@@ -81,7 +89,7 @@ $(function() {
 		deleteStory();
 	});
 	
-	$("#regist_button").on("click", function() {
+	$("#comment_regist_button").on("click", function() {
 		registComment();
 	});
 });
