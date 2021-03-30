@@ -14,7 +14,7 @@
 <body>
 	<%@ include file="../../common/nav_bar.jsp"%>
 	<%@ include file="../../common/write_button.jsp"%>
-	<button type="button" id="like-button">공감 1</button>
+	<button type="button" id="like_button">공감 1</button>
 
     <div id="wrapper">
         <div id="writing">
@@ -30,7 +30,7 @@
 
 		<%if (member.getMember_id() == story.getMember().getMember_id()) { %>
     	<button type="button" id="delete_button">삭제</button>
-    	<button type="button" id="update_button">수정</button>
+    	<button type="button" id="modify_button">수정</button>
     	<%} %>
 
 		<input type="hidden" id="story_id" value="<%=story.getStory_id() %>">

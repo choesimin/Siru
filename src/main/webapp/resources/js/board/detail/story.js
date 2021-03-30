@@ -1,10 +1,14 @@
-function updateStory() {
-	console.log("update");
+function modifyStory() {
+	var story_id = $("#story_id").val();
+
+	location.href = "/user/board/form/modify/story?story_id=" + story_id;
 }
 
 function deleteStory() {
 	if (confirm("글을 지우시겠습니까?")) {
-		
+		var story_id = $("#story_id").val();
+
+		location.href = "/user/board/story/delete?story_id=" + story_id;
 	}
 }
 
@@ -69,8 +73,8 @@ function getCommentList() {
 $(function() {
 	getCommentList();
 	
-	$("#update_button").on("click", function() {
-		updateStory();
+	$("#modify_button").on("click", function() {
+		modifyStory();
 	});
 
 	$("#delete_button").on("click", function() {

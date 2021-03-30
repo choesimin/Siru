@@ -3,12 +3,12 @@
 <mapper namespace="Comment">
 
 	<insert id="insert" parameterType="Comment">
-		insert into comment(member_id, story_id, content)
+		insert into comments(member_id, story_id, content)
 		values(#{member_id}, #{story_id}, #{content})
 	</insert>
 	
 	<sql id="selectCommon">
-		select comment_id, member_id, story_id, content, date from comment
+		select comment_id, member_id, story_id, content, date from comments
 	</sql>
 	
 	<resultMap type="Comment" id="commentMemberMap">

@@ -29,4 +29,14 @@ public class MybatisStoryDAO implements StoryDAO {
 		return sqlSessionTemplate.selectOne("Story.select", story_id);
 	}
 
+	@Override
+	public void update(Story story) {
+		sqlSessionTemplate.update("Story.update", story);
+	}
+
+	@Override
+	public void delete(int story_id) {
+		sqlSessionTemplate.delete("Story.delete", story_id);
+	}
+
 }

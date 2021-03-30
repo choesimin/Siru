@@ -16,11 +16,6 @@ public class CommentController {
 	@Autowired
 	CommentService commentService;
 
-	@RequestMapping(value = "/comment/regist", method = RequestMethod.POST)
-	public void regist(Comment comment) {
-		commentService.regist(comment);
-	}
-	
 	@RequestMapping(value = "/comment/list", method = RequestMethod.GET, produces = "application/text;charset=utf8")
 	public String getList(int story_id) {
 		ObjectMapper mapper = new ObjectMapper();
@@ -34,6 +29,11 @@ public class CommentController {
 		}
 		
 		return jsonString;
+	}
+	
+	@RequestMapping(value = "/comment/regist", method = RequestMethod.POST)
+	public void regist(Comment comment) {
+		commentService.regist(comment);
 	}
 	
 }

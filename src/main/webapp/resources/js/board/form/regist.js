@@ -1,5 +1,28 @@
 var flag = null;
 
+function regist() {
+	var title = $("input[name='title'");
+	var content = $("textarea[name='content'");
+
+	if (title.val() != "" && content.val() != "") {
+		if (flag == true) {
+			alert("poem mode");
+		} else if (flag == false) {
+				$("#write_form").attr({
+					action : "/user/board/story/regist",
+					method : "post"
+				});
+				$("#write_form").submit();
+		} else {
+			$("#regist_button").html("선택 필수");
+		}
+	} else if (title.val() == "") {
+		title.focus();
+	} else if (content.val() == "") {
+		content.focus();
+	}
+}
+
 $(function(){
 	$("#poem_mode").mousedown(function() {
 		$("#poem_mode").css("background-color","#fbbd0d");
@@ -22,25 +45,6 @@ $(function(){
 	});
 	
 	$("#regist_button").click(function() {
-		var title = $("input[name='title'");
-		var content = $("textarea[name='content'");
-	
-		if (title.val() != "" && content.val() != "") {
-			if (flag == true) {
-				alert("poem mode");
-			} else if (flag == false) {
-					$("#write_form").attr({
-						action : "/user/board/story/regist",
-						method : "post"
-					});
-					$("#write_form").submit();
-			} else {
-				$("#regist_button").html("선택 필수");
-			}
-		} else if (title.val() == "") {
-			title.focus();
-		} else if (content.val() == "") {
-			content.focus();
-		}
+		regist();
 	});
 });

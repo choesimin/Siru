@@ -21,7 +21,7 @@ public class BoardController {
 	StoryService storyService;
 	
 	@RequestMapping(value = "/board/story", method = RequestMethod.GET)
-	public ModelAndView story(HttpServletRequest request) {
+	public ModelAndView getStoryBoard(HttpServletRequest request) {
 		ModelAndView mav = new ModelAndView();
 		List<Story> story_list = storyService.selectAll();
 		Pager pager = new Pager();
@@ -36,19 +36,12 @@ public class BoardController {
 	}
 
 	@RequestMapping(value = "/board/form/regist", method = RequestMethod.GET)
-	public String registForm() {
+	public String getRegistForm() {
 		return "board/form/regist";
 	}
 	
-	@RequestMapping(value = "/board/story/regist", method = RequestMethod.POST)
-	public String registStory(Story story) {
-		storyService.regist(story);
-		
-		return "redirect:/user/board/story";
-	}
-	
 	@RequestMapping(value = "/board/detail/story", method = RequestMethod.GET)
-	public ModelAndView storyDetail(int story_id) {
+	public ModelAndView getStoryDetail(int story_id) {
 		ModelAndView mav = new ModelAndView();
 
 		Story story = storyService.select(story_id);
@@ -57,6 +50,40 @@ public class BoardController {
 		mav.setViewName("board/detail/story");
 		
 		return mav;
+	}
+	
+	@RequestMapping(value = "/board/form/modify/story", method = RequestMethod.GET)
+	public ModelAndView getStoryModifyForm(int story_id) {
+		ModelAndView mav = new ModelAndView();
+		
+		Story story = storyService.select(story_id);
+		
+		mav.addObject("story", story);
+		mav.setViewName("board/form/modify/story");
+		
+		return mav;
+	}
+
+	
+	@RequestMapping(value = "/board/story/regist", method = RequestMethod.POST)
+	public String registStory(Story story) {
+		storyService.regist(story);
+		
+		return "redirect:/user/board/story";
+	}
+	
+	@RequestMapping(value = "/board/story/modify", method = RequestMethod.POST)
+	public String modifyStory(Story story) {
+		storyService.modify(story);
+		
+		return "redirect:/user/board/detail/story?story_id=" + story.getStory_id();
+	}
+	
+	@RequestMapping(value = "/board/story/delete", method = RequestMethod.GET)
+	public String deleteStory(int story_id) {
+		storyService.delete(story_id);
+		
+		return "redirect:/user/board/story";
 	}
 
 }

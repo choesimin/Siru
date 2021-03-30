@@ -29,4 +29,14 @@ public class StoryServiceImpl implements StoryService {
 		return storyDAO.select(story_id);
 	}
 
+	@Override
+	public void modify(Story story) {
+		storyDAO.update(story);
+	}
+
+	@Override
+	public void delete(int story_id) {
+		storyDAO.delete(story_id);
+	}
+
 }
