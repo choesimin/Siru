@@ -61,7 +61,7 @@ function getCommentList() {
 				tag += "<pre>" + responseJson[i].content + "</pre>";
 				tag += "</td>";
 				tag += "<td>";
-				tag += responseJson[i].date.substring(5, 16);
+				tag += "<span class=\"comment_date\">" + responseJson[i].date.substring(5, 16) + "</span>";
 				if (responseJson[i].member.member_id == member_id.val()) {
 					tag += "<button type=\"button\" value=\"" + responseJson[i].comment_id + "\" onclick=\"deleteComment(this)\" class=\"comment_delete_button\">×</button>";
 				}
@@ -75,7 +75,17 @@ function getCommentList() {
 }
 
 function deleteComment(obj) {
-	console.log(obj.value);
+	if (confirm("댓글을 지우시겠습니까?")) {
+		var comment_id = obj.value;
+		
+		$.ajax({
+			url : "/rest/comment/delete?comment_id=" + comment_id,
+			method : "get",
+			success : function() {
+				getCommentList();
+			}
+		});
+	}
 }
 
 $(function() {

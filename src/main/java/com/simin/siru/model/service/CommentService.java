@@ -7,4 +7,5 @@ import com.simin.siru.model.domain.Comment;
 public interface CommentService {
 	public void regist(Comment comment);
 	public List<Comment> getCommentList(int story_id);
+	public void delete(int comment_id);
 }

@@ -24,4 +24,9 @@ public class MybatisCommentDAO implements CommentDAO {
 		return sqlSessionTemplate.selectList("Comment.selectByStoryId", story_id);
 	}
 
+	@Override
+	public void delete(int comment_id) {
+		sqlSessionTemplate.delete("Comment.delete", comment_id);
+	}
+
 }

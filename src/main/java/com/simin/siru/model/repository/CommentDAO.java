@@ -7,4 +7,5 @@ import com.simin.siru.model.domain.Comment;
 public interface CommentDAO {
 	public void insert(Comment comment);
 	public List<Comment> selectByStoryId(int story_id);
+	public void delete(int comment_id);
 }

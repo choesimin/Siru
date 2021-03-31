@@ -23,12 +23,12 @@
         	<br/>
         	<p id="regdate"><%=story.getDate().substring(5, 16) %></p>
         	<br/>
-        	<p id="content">
-        		<%=story.getContent() %>
-        	</p>
+        	<pre id="content">
+<%=story.getContent() %>
+        	</pre>
         </div>
 
-		<%if (member.getMember_id() == story.getMember().getMember_id()) { %>
+		<%if ((member != null) && (member.getMember_id() == story.getMember().getMember_id())) { %>
     	<button type="button" id="delete_button">삭제</button>
     	<button type="button" id="modify_button">수정</button>
     	<%} %>

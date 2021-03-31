@@ -16,6 +16,7 @@
 	line-height: 35px;
 	padding-top: 20px;
 	padding-bottom: 70px;
+	white-space: pre-wrap;
 }
 
 #modify_button, #delete_button {
@@ -41,6 +42,7 @@
 	border-collapse: collapse;
 	font-size: 16px;
 	margin-bottom: 100px;
+	table-layout: fixed;
 }
 
 #comment_table td {
@@ -84,6 +86,15 @@
 
 #comment_list {
 	border-top: 1px solid #fbbd0d4d;
+}
+
+#comment_list .comment_date {
+	font-size: 10px;
+	opacity: 0.8;
+}
+
+#comment_list pre {
+	white-space: pre-wrap;
 }
 
 #comment_list .comment_delete_button {

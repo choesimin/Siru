@@ -36,4 +36,9 @@ public class CommentController {
 		commentService.regist(comment);
 	}
 	
+	@RequestMapping(value = "/comment/delete", method = RequestMethod.GET)
+	public void delete(int comment_id) {
+		commentService.delete(comment_id);
+	}
+	
 }

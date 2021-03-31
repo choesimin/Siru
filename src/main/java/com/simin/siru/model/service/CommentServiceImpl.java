@@ -24,4 +24,9 @@ public class CommentServiceImpl implements CommentService {
 		return commentDAO.selectByStoryId(story_id);
 	}
 
+	@Override
+	public void delete(int comment_id) {
+		commentDAO.delete(comment_id);
+	}
+
 }
