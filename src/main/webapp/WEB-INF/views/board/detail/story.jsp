@@ -17,40 +17,32 @@
 	<button type="button" id="like_button">공감 1</button>
 
     <div id="wrapper">
-        <div id="writing">
+        <div id="post">
         	<h2><%=story.getTitle() %></h2>
+        	<p id="date"><%=story.getDate() %></p>
         	<p id="writer"><%=story.getMember().getNickname() %></p>
-        	<br/>
-        	<p id="regdate"><%=story.getDate().substring(5, 16) %></p>
         	<br/>
         	<pre id="content">
 <%=story.getContent() %>
         	</pre>
+			<%if ((member != null) && (member.getMember_id() == story.getMember().getMember_id())) { %>
+			<button type="button" id="delete_button">삭제</button>
+			<button type="button" id="modify_button">수정</button>
+			<%} %>
         </div>
-
-		<%if ((member != null) && (member.getMember_id() == story.getMember().getMember_id())) { %>
-    	<button type="button" id="delete_button">삭제</button>
-    	<button type="button" id="modify_button">수정</button>
-    	<%} %>
 
 		<input type="hidden" id="story_id" value="<%=story.getStory_id() %>">
 
-        <table id="comment_table">
+        <div id="comment_area">
         	<%if (member != null) { %>
-        	<tr>
-        		<td>
-					<input type="hidden" id="member_id" value="<%=member.getMember_id() %>">
-        		</td>
-        		<td>
-        			<textarea id="comment"></textarea>
-        		</td>
-        		<td>
-        			<button id="comment_regist_button">댓글</button>
-        		</td>
-        	</tr>
+			<input type="hidden" id="member_id" value="<%=member.getMember_id() %>">
+        	<div id="comment_regist">
+				<textarea placeholder="댓글을 남겨보세요." id="comment_writing_area"></textarea>
+				<button id="comment_regist_button">댓글</button>
+        	</div>
         	<%} %>
-        	<tbody id="comment_list"></tbody>
-        </table>
+        	<div id="comment_list"></div>
+        </div>
 	</div>
 </body>
 </html>

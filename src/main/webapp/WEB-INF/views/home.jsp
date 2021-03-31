@@ -113,7 +113,7 @@
 			<h3>시작하세요.</h3>
 			<form id="login">
 				<h4 align="center" id="login_guide" class="font_size_25 margin_bottom_30">로그인</h4>
-				<input type="text" placeholder="아이디" maxlength="20" id="id_login" class="no_space only_alphabet">
+				<input type="text" placeholder="아이디" maxlength="20" id="id_login" class="no_space no_special only_alphabet">
 				<input type="password" placeholder="비밀번호" maxlength="20" id="password_login" class="no_space only_alphabet">
 				<button id="login_button" type="button">시작</button>
 				<div id="find_area">
@@ -125,7 +125,7 @@
 					</div>
 					<div id="change_password">
 						<p id="change_guide">아이디와 이메일을 입력하고 비밀번호를 변경하세요.</p>
-						<input type="text" placeholder="아이디" maxlength="20" id="id_change" class="no_space only_alphabet">
+						<input type="text" placeholder="아이디" maxlength="20" id="id_change" class="no_space no_special only_alphabet">
 						<input type="text" placeholder="이메일" maxlength="40" id="email_change" class="only_alphabet">
 						<input type="password" placeholder="새로운 비밀번호" maxlength="20" id="password_change" class="no_space only_alphabet">
 						<input type="password" placeholder="비밀번호 확인" maxlength="20" id="repassword_change" class="no_space only_alphabet">
@@ -135,7 +135,7 @@
 			</form>
 			<form id="regist">
 				<h4 align="center" class="font_size_25 margin_bottom_30" id="regist_guide">가입</h4>
-				<input type="text" placeholder="(필수) 아이디 (6~20)" maxlength="20" id="id_regist" class="no_space only_alphabet">
+				<input type="text" placeholder="(필수) 아이디 (6~20)" maxlength="20" id="id_regist" class="no_space no_special only_alphabet">
 				<input type="password" placeholder="(필수) 비밀번호 (6~20)" maxlength="20" id="password_regist" class="no_space only_alphabet">
 				<input type="password" placeholder="(필수) 비밀번호 확인" maxlength="20" id="repassword_regist" class="no_space only_alphabet">
 				<input type="text" placeholder="(필수) 닉네임 (한글 1~20)" maxlength="20" id="nickname_regist" class="only_hangul">

@@ -26,14 +26,14 @@ public class MemberServiceImpl implements MemberService {
 		int code = 0;
 		
 		if (memberByNickname != null) {
-			message = "닉네임(<span class=\"color_yellow\">" + memberByNickname.getNickname() + "</span>)이 중복됩니다";
+			message = "닉네임(<span class=\"color_yellow\">" + memberByNickname.getNickname() + "</span>)이 중복됩니다.";
 			code = 1;
 		} else if (memberById != null) {
-			message = "아이디(<span class=\"color_yellow\">" + memberById.getId() + "</span>)가 중복됩니다";
+			message = "아이디(<span class=\"color_yellow\">" + memberById.getId() + "</span>)가 중복됩니다.";
 			code = 2;
 		} else {
 			memberDAO.insert(member);
-			message = "환영합니다 <span class=\"color_yellow\">" + member.getNickname() + "</span> 작가님! <br/> 로그인하여 시작하세요";
+			message = "환영합니다 <span class=\"color_yellow\">" + member.getNickname() + "</span> 작가님! <br/> 로그인하여 시작하세요.";
 			code = 10;
 		}
 		

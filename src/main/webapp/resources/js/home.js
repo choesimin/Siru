@@ -181,6 +181,14 @@ function noSpace(obj) {
     }
 }
 
+function noSpecialSymbol(obj) {
+	var regExp = /[ \{\}\[\]\/?.,;:|\)*~`!^\-_+┼<>@\#$%&\'\"\\\(\=]/gi; 
+	if (regExp.test(obj.value)) {
+		obj.value = obj.value.substring(0, obj.value.length - 1 );
+	}
+}
+			
+
 function onlyAlphabet(obj) {
 	obj.value = obj.value.replace(/[^\\!-z]/gi,"");
 }
@@ -201,6 +209,12 @@ $(function(){
 	$(".no_space").on("keyup paste", function() {
 		for (var i = 0; i < 50; i++) {
 			noSpace(this);
+		}
+	});
+
+	$(".no_special").on("keyup paste", function() {
+		for (var i = 0; i < 50; i++) {
+			noSpecialSymbol(this);
 		}
 	});
 

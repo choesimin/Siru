@@ -16,7 +16,7 @@ function deleteStory() {
 function registComment() {
 	var member_id = $("#member_id");
 	var story_id = $("#story_id");
-	var comment = $("#comment");
+	var comment = $("#comment_writing_area");
 	
 	if (comment.val() != "") {
 		$.ajax({
@@ -30,6 +30,7 @@ function registComment() {
 			success : function() {
 				comment.val("");
 				getCommentList();
+				hideCommentRegistButton();
 			}
 		});
 	} else {
@@ -53,20 +54,14 @@ function getCommentList() {
 			var tag = "";
 
 			for (var i = 0; i < responseJson.length; i++) {
-				tag += "<tr>";
-				tag += "<td>";
-				tag += responseJson[i].member.nickname;
-				tag += "</td>";
-				tag += "<td>";
+				tag += "<div id=\"comment\">";
+				tag += "<h3>" + responseJson[i].member.nickname + "</h3>";
+				tag += "<p class=\"comment_date\">" + responseJson[i].date + "</p>";
 				tag += "<pre>" + responseJson[i].content + "</pre>";
-				tag += "</td>";
-				tag += "<td>";
-				tag += "<span class=\"comment_date\">" + responseJson[i].date.substring(5, 16) + "</span>";
 				if (responseJson[i].member.member_id == member_id.val()) {
 					tag += "<button type=\"button\" value=\"" + responseJson[i].comment_id + "\" onclick=\"deleteComment(this)\" class=\"comment_delete_button\">×</button>";
 				}
-				tag += "</td>";
-				tag += "</tr>";
+				tag += "</div>";
 			}
 			
 			comment_list.html(tag);
@@ -88,6 +83,14 @@ function deleteComment(obj) {
 	}
 }
 
+function showCommentRegistButton() {
+	$("#comment_regist_button").css("display", "block");
+}
+
+function hideCommentRegistButton() {
+	$("#comment_regist_button").css("display", "none");
+}
+
 $(function() {
 	getCommentList();
 	
@@ -102,6 +105,11 @@ $(function() {
 	$("#comment_regist_button").on("click", function() {
 		registComment();
 	});
+	
+	$("#comment_writing_area").focusin(function() {
+		showCommentRegistButton();
+	});
+
 });
 
 
