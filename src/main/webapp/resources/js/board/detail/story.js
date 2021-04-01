@@ -83,6 +83,62 @@ function deleteComment(obj) {
 	}
 }
 
+function likePost() {
+	var member_id = $("#member_id");
+	var story_id = $("#story_id");
+
+	if (checkLike()) {
+
+	} else {
+		$.ajax({
+			url : "/rest/story/like",
+			method : "post",
+			data : {
+				member_id : member_id.val(),
+				story_id : story_id.val()
+			},
+			success : function() {
+				updateLike();
+			}
+		});
+	}
+}
+
+function updateLike() {
+	var story_id = $("#story_id").val();
+	var like_count = $("#like_count");
+	
+	$.ajax({
+		url : "/rest/story/like/count?story_id=" + story_id,
+		method : "get",
+		success : function(responseData) {
+			like_count.html(responseData);
+		}
+	});
+}
+
+function checkLike() {
+	var flag = false;
+
+	var member_id = $("#member_id");
+	var story_id = $("#story_id");
+	
+	$.ajax({
+		url : "/rest/story/like/check",
+		async : false,
+		method : "post",
+		data : {
+			member_id : member_id.val(),
+			story_id : story_id.val()
+		},
+		success : function(responseData) {
+			flag = responseData;
+		}
+	});
+	
+	return flag;
+}
+
 function showCommentRegistButton() {
 	$("#comment_regist_button").css("display", "block");
 }
@@ -93,6 +149,7 @@ function hideCommentRegistButton() {
 
 $(function() {
 	getCommentList();
+	updateLike();
 	
 	$("#modify_button").on("click", function() {
 		modifyStory();

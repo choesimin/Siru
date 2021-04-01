@@ -10,7 +10,7 @@
 	column-width: 200px;
 	column-gap: 50px;
 }
-.piece {
+.post {
 	display: inline-block;
 	width: 100%;
 	margin-bottom: 50px;
@@ -18,14 +18,14 @@
 	border: 1px solid #fbbd0d;
 	text-align: center;
 }
-.piece:hover {
+.post:hover {
 	color: #fbbd0d;
 	transition: 0.3s;
 }
-.piece h3 {
+.post h3 {
 	margin: 30px 0;
 }
-.piece p {
+.post p {
 	float: right;
 	font-size: 12px;
 }

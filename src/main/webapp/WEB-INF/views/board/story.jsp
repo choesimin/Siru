@@ -29,7 +29,7 @@
         		currentPosition++;
         		number--;
         	%>
-            <a class="piece" href="/user/board/detail/story?story_id=<%=story.getStory_id() %>">
+            <a class="post" href="/user/board/detail/story?story_id=<%=story.getStory_id() %>">
             	<h3><%=story.getTitle() %></h3>
             	<p><%=story.getMember().getNickname() %></p>
             </a>

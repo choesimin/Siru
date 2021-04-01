@@ -14,21 +14,22 @@
 <body>
 	<%@ include file="../../common/nav_bar.jsp"%>
 	<%@ include file="../../common/write_button.jsp"%>
-	<button type="button" id="like_button">공감 1</button>
 
     <div id="wrapper">
         <div id="post">
         	<h2><%=story.getTitle() %></h2>
         	<p id="date"><%=story.getDate() %></p>
         	<p id="writer"><%=story.getMember().getNickname() %></p>
-        	<br/>
+        	<div class="clear_fix"></div>
         	<pre id="content">
 <%=story.getContent() %>
         	</pre>
+
 			<%if ((member != null) && (member.getMember_id() == story.getMember().getMember_id())) { %>
 			<button type="button" id="delete_button">삭제</button>
 			<button type="button" id="modify_button">수정</button>
 			<%} %>
+			<button type="button" id="like_button"<%if (member != null) { %> onclick="likePost()"<%} %>>공감 <span id="like_count"></span></button>
         </div>
 
 		<input type="hidden" id="story_id" value="<%=story.getStory_id() %>">

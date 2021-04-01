@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Like">
+
+	<insert id="insert" parameterType="Like">
+		insert into likes(member_id, story_id)
+		values(#{member_id}, #{story_id})
+	</insert>
+	
+	<select id="countByStoryId" parameterType="int" resultType="int">
+		select count(*) from likes
+		where story_id = #{story_id}
+	</select>
+	
+	<select id="selectByMemberIdAndStoryId" parameterType="Like" resultType="Like">
+		select member_id, story_id from likes
+		where member_id = #{member_id} and story_id = #{story_id}
+	</select>
+
+</mapper>

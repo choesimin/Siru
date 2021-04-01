@@ -6,19 +6,18 @@
 	color: #fbbd0d;
 }
 
-#post #writer { 
-	float: right;
-/* 	font-size:16px; */
-}
-
 #post #date { 
 	opacity: 0.6;
 	font-size:12px;
 }
 
+#post #writer { 
+	float: right;
+}
+
 #post #content {
+	margin-top: 20px;
 	line-height: 35px;
-	padding-top: 20px;
 	white-space: pre-wrap;
 }
 
@@ -28,7 +27,7 @@
 	clear: both;
 }
 
-#modify_button, #delete_button {
+#modify_button, #delete_button, #like_button {
 	float: right;
 	padding: 5px 10px;
 	margin-left: 10px;
@@ -39,7 +38,7 @@
 	border: 1px solid #faf5e64d;
 }
 
-#modify_button:hover, #delete_button:hover {
+#modify_button:hover, #delete_button:hover, #like_button:hover {
 	transition: 0.2s;
     color: #fbbd0d;
 	border: 1px solid #fbbd0d;

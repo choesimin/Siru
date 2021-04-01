@@ -4,6 +4,7 @@
     box-sizing: border-box;
     font-family: 'Noto Serif KR', serif;
     font-weight: lighter;
+	word-break: break-all;
 }
 html {
 	scroll-behavior: smooth;
@@ -40,6 +41,12 @@ a {
 
 .margin_bottom_30 {
 	margin-bottom: 30px;
+}
+
+.clear_fix {
+	content: "";
+	display: table;
+	clear: both;
 }
 
 #wrapper {
@@ -96,7 +103,7 @@ a {
     margin-right: 10px;
     padding: 5px 15px;
     font-size: 15px;
-    border: 1px solid #faf5e6;
+    border: 1px solid #faf5e6bf;
     border-radius: 15px;
 }
 #nav #nav_right a:hover {
@@ -106,16 +113,5 @@ a {
 }
 
 @media screen and (max-width: 600px) {
-	body {
-		font-size: 15px;
-	}
-	#siru{
-		display:none;
-	}
-	#nav #nav_right span {
-		font-size: 12px;
-	}
-	#write_button {
-		font-size: 14px;
-	}
+
 }

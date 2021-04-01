@@ -47,4 +47,11 @@ $(function(){
 	$("#regist_button").click(function() {
 		regist();
 	});
+	
+	$('input[type="text"]').keydown(function() {
+		if (event.keyCode == 13) {
+			event.preventDefault();
+		}
+	});
+
 });
