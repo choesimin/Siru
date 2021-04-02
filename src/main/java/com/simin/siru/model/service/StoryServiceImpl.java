@@ -46,7 +46,12 @@ public class StoryServiceImpl implements StoryService {
 
 	@Override
 	public void like(Like like) {
-		likeDAO.like(like);
+		likeDAO.insert(like);
+	}
+
+	@Override
+	public void cancelLike(Like like) {
+		likeDAO.delete(like);
 	}
 
 	@Override
@@ -59,11 +64,9 @@ public class StoryServiceImpl implements StoryService {
 		boolean flag = false;
 		List<Like> like_list = likeDAO.selectByMemberIdAndStoryId(like);
 		
-		System.out.println(like_list);
-		
 		if (like_list.size() > 0) {
 			flag = true;
-		}		
+		}
 
 		return flag;
 	}

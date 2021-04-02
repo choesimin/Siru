@@ -16,7 +16,7 @@ function deleteStory() {
 function registComment() {
 	var member_id = $("#member_id");
 	var story_id = $("#story_id");
-	var comment = $("#comment_writing_area");
+	var comment = $("#comment_regist_area");
 	
 	if (comment.val() != "") {
 		$.ajax({
@@ -59,6 +59,7 @@ function getCommentList() {
 				tag += "<p class=\"comment_date\">" + responseJson[i].date + "</p>";
 				tag += "<pre>" + responseJson[i].content + "</pre>";
 				if (responseJson[i].member.member_id == member_id.val()) {
+					tag += "<button type=\"button\" value=\"" + responseJson[i].comment_id + "\" onclick=\"showCommentModifing(this)\" class=\"comment_modify_button\">±</button>";
 					tag += "<button type=\"button\" value=\"" + responseJson[i].comment_id + "\" onclick=\"deleteComment(this)\" class=\"comment_delete_button\">×</button>";
 				}
 				tag += "</div>";
@@ -87,8 +88,18 @@ function likePost() {
 	var member_id = $("#member_id");
 	var story_id = $("#story_id");
 
-	if (checkLike()) {
-
+	if (checkMemberLike() == true) {
+		$.ajax({
+			url : "/rest/story/like/cancel",
+			method : "post",
+			data : {
+				member_id : member_id.val(),
+				story_id : story_id.val()
+			},
+			success : function() {
+				getLike();
+			}
+		});
 	} else {
 		$.ajax({
 			url : "/rest/story/like",
@@ -98,13 +109,13 @@ function likePost() {
 				story_id : story_id.val()
 			},
 			success : function() {
-				updateLike();
+				getLike();
 			}
 		});
 	}
 }
 
-function updateLike() {
+function getLike() {
 	var story_id = $("#story_id").val();
 	var like_count = $("#like_count");
 	
@@ -113,11 +124,13 @@ function updateLike() {
 		method : "get",
 		success : function(responseData) {
 			like_count.html(responseData);
+
+			chooseLikeButtonColor();
 		}
 	});
 }
 
-function checkLike() {
+function checkMemberLike() {
 	var flag = false;
 
 	var member_id = $("#member_id");
@@ -139,6 +152,18 @@ function checkLike() {
 	return flag;
 }
 
+function chooseLikeButtonColor() {
+	var like_button = $("#like_button");
+	
+	if (checkMemberLike() == true) {
+		like_button.css("color", "#fbbd0d");
+		like_button.css("border", "1px solid #fbbd0d");
+	} else {
+		like_button.css("color", "#faf5e6");
+		like_button.css("border", "1px solid #faf5e64d");
+	}
+}
+
 function showCommentRegistButton() {
 	$("#comment_regist_button").css("display", "block");
 }
@@ -149,7 +174,7 @@ function hideCommentRegistButton() {
 
 $(function() {
 	getCommentList();
-	updateLike();
+	getLike();
 	
 	$("#modify_button").on("click", function() {
 		modifyStory();
@@ -163,7 +188,7 @@ $(function() {
 		registComment();
 	});
 	
-	$("#comment_writing_area").focusin(function() {
+	$("#comment_regist_area").focusin(function() {
 		showCommentRegistButton();
 	});
 

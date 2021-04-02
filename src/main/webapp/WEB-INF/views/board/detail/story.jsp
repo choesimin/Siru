@@ -38,11 +38,18 @@
         	<%if (member != null) { %>
 			<input type="hidden" id="member_id" value="<%=member.getMember_id() %>">
         	<div id="comment_regist">
-				<textarea placeholder="댓글을 남겨보세요." id="comment_writing_area"></textarea>
+				<textarea placeholder="댓글 남기기." id="comment_regist_area"></textarea>
 				<button id="comment_regist_button">댓글</button>
         	</div>
         	<%} %>
-        	<div id="comment_list"></div>
+        	<div id="comment_list">
+        	</div>
+
+        		<div id="comment_modify">
+					<textarea id="comment_modifing_area"></textarea>
+					<button id="comment_modifing_cancel_button">취소</button>
+					<button id="comment_modifing_button">수정</button>
+        		</div>
         </div>
 	</div>
 </body>

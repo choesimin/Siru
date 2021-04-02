@@ -16,5 +16,10 @@
 		select member_id, story_id from likes
 		where member_id = #{member_id} and story_id = #{story_id}
 	</select>
+	
+	<delete id="delete" parameterType="Like">
+		delete from likes
+		where member_id = #{member_id} and story_id = #{story_id}
+	</delete>
 
 </mapper>

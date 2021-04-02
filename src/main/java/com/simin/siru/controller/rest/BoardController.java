@@ -19,6 +19,11 @@ public class BoardController {
 		storyService.like(like);
 	}
 
+	@RequestMapping(value = "/story/like/cancel", method = RequestMethod.POST)
+	public void cancelLikeStory(Like like) {
+		storyService.cancelLike(like);
+	}
+
 	@RequestMapping(value = "/story/like/count", method = RequestMethod.GET)
 	public int countStoryLike(int story_id) {
 		return storyService.countLike(story_id);

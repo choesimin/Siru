@@ -13,6 +13,7 @@ public interface StoryService {
 	public void modify(Story story);
 	public void delete(int story_id);
 	public void like(Like like);
+	public void cancelLike(Like like);
 	public int countLike(int story_id);
 	public boolean checkMemberLike(Like like);
 	
