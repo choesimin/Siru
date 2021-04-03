@@ -42,15 +42,9 @@
 				<button id="comment_regist_button">댓글</button>
         	</div>
         	<%} %>
-        	<div id="comment_list">
-        	</div>
+        	<div id="comment_list"></div>
 
-        		<div id="comment_modify">
-					<textarea id="comment_modifing_area"></textarea>
-					<button id="comment_modifing_cancel_button">취소</button>
-					<button id="comment_modifing_button">수정</button>
-        		</div>
-        </div>
+		</div>
 	</div>
 </body>
 </html>

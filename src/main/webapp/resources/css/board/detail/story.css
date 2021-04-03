@@ -50,6 +50,8 @@
 }
 
 
+
+
 #comment_area {
 	width: 100%;
 }
@@ -71,7 +73,8 @@
 	clear: both;
 }
 
-#comment_area #comment_regist #comment_regist_area, #comment_modifing_area {
+
+#comment_area #comment_regist #comment_regist_area, .comment_modifing_area {
 	width: 100%;
 	padding: 10px 15px;
 	resize: vertical;
@@ -81,7 +84,7 @@
 	outline: none;
 }
 
-#comment_area #comment_regist #comment_regist_area:focus, #comment_modifing_area:focus {
+#comment_area #comment_regist #comment_regist_area:focus, .comment_modifing_area:focus {
 	border-color: #fbbd0d;
 }
 
@@ -89,7 +92,7 @@
 	display: none;
 }
 
-#comment_area #comment_regist #comment_regist_button, #comment_modifing_button, #comment_modifing_cancel_button {
+#comment_area #comment_regist #comment_regist_button, .comment_modifing_button, .comment_modifing_cancel_button {
 	margin-left: 5px;
 	padding: 8px 16px;
 	float: right;
@@ -97,51 +100,46 @@
     color: #faf5e6;
 	border: 1px solid #faf5e64d;
 }
-#comment_area #comment_regist #comment_regist_button:hover, #comment_modifing_button:hover, #comment_modifing_cancel_button:hover {
+#comment_area #comment_regist #comment_regist_button:hover, .comment_modifing_button:hover, .comment_modifing_cancel_button:hover {
 	transition: 0.2s;
     color: #fbbd0d;
 	border: 1px solid #fbbd0d;
 }
 
-#comment_area #comment_list #comment {
-	position: relative;
+#comment_area #comment_list .comment {
 	border-top: 1px solid #fbbd0d4d;
 	padding: 20px 0;
 }
 
-#comment_area #comment_list #comment h3 {
+#comment_area #comment_list .comment h3 {
+	float: left;
 	color: #fbbd0d;
 }
 
-#comment_area #comment_list #comment .comment_date {
+#comment_area #comment_list .comment .comment_date {
+	margin-bottom: 10px;
 	font-size: 12px;
 	opacity: 0.6;
 }
 
-#comment_area #comment_list pre {
+#comment_area #comment_list .comment .comment_content_wrapper .comment_content {
 	white-space: pre-wrap;
-	margin-top: 10px;
-}
-
-
-#comment_area #comment_list .comment_delete_button {
-	right: 0;
-}
-
-#comment_area #comment_list .comment_modify_button {
-	right: 20px;
 }
 
 #comment_area #comment_list .comment_delete_button, .comment_modify_button {
-	position: absolute;
-	top: 20px;
+	float: right;
 	background-color: transparent;
     color: #faf5e6;
-    font-weight: bolder;
 	border: none;
 }
 
 #comment_area #comment_list .comment_delete_button:hover, .comment_modify_button:hover {
 	transition: 0.2s;
     color: #fbbd0d;
+}
+
+#comment_area #comment_list .comment_modifing:after {
+	content: "";
+	display: table;
+	clear: both;
 }
