@@ -15,13 +15,23 @@ public class CommentServiceImpl implements CommentService {
 	private CommentDAO commentDAO;
 
 	@Override
+	public Comment get(int comment_id) {
+		return commentDAO.select(comment_id);
+	}
+
+	@Override
 	public void regist(Comment comment) {
 		commentDAO.insert(comment);
 	}
 
 	@Override
-	public List<Comment> getCommentList(int story_id) {
+	public List<Comment> getList(int story_id) {
 		return commentDAO.selectByStoryId(story_id);
+	}
+
+	@Override
+	public void modify(Comment comment) {
+		commentDAO.update(comment);
 	}
 
 	@Override

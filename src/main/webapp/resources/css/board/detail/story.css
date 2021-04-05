@@ -126,6 +126,10 @@
 	white-space: pre-wrap;
 }
 
+#comment_area #comment_list .comment_delete_button {
+	margin-left: 5px;
+}
+
 #comment_area #comment_list .comment_delete_button, .comment_modify_button {
 	float: right;
 	background-color: transparent;

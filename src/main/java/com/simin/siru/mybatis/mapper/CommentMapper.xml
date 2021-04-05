@@ -20,10 +20,20 @@
 		<association column="member_id" property="member" javaType="Member" select="Member.select"/>
 	</resultMap>
 	
+	<select id="select" parameterType="int" resultMap="commentMemberMap">
+		<include refid="selectCommon"/>
+		where comment_id = #{comment_id}
+	</select>
+	
 	<select id="selectByStoryId" parameterType="int" resultMap="commentMemberMap">
 		<include refid="selectCommon"/>
 		where story_id = #{story_id}
 	</select>
+	
+	<update id="update" parameterType="Comment">
+		update comments set content = #{content}
+		where comment_id = #{comment_id}
+	</update>
 	
 	<delete id="delete" parameterType="int">
 		delete from comments

@@ -98,6 +98,7 @@ function chooseLikeButtonColor() {
 
 
 function showCommentRegistButton() {
+	
 	$("#comment_regist_button").css("display", "block");
 }
 
@@ -121,7 +122,7 @@ function registComment() {
 			method : "post",
 			success : function() {
 				comment.val("");
-				getCommentList();
+				loadCommentList();
 				hideCommentRegistButton();
 			}
 		});
@@ -138,24 +139,50 @@ function deleteComment(obj) {
 			url : "/rest/comment/delete?comment_id=" + comment_id,
 			method : "get",
 			success : function() {
-				getCommentList();
+				loadCommentList();
 			}
 		});
 	}
 }
 
-function modifyComment() {
-
+function modifyComment(obj) {
+	var comment_id = obj.value;
+	var content = obj.previousSibling;
+	
+	if (content.value != "") {
+		$.ajax({
+			url : "/rest/comment/modify",
+			method : "post",
+			data : {
+				comment_id : comment_id,
+				content : content.value
+			},
+			success : function() {
+				loadCommentList();
+			}
+		});
+	} else {
+		content.focus();
+	}
 }
 
 function getComment(comment_id) {
+	var commentJson = {};
+
+	$.ajax({
+		url : "/rest/comment/get?comment_id=" + comment_id,
+		method : "get",
+		async: false,
+		success : function(responseData) {
+			commentJson = JSON.parse(responseData);
+		}
+	});
 
 	return commentJson;
 }
 
 
-
-function getCommentList() {
+function loadCommentList() {
 	var comment_list = $("#comment_list");
 	var story_id = $("#story_id");
 	var member_id = $("#member_id");
@@ -198,28 +225,23 @@ function getCommentList() {
 
 function showCommentModifingArea(obj) {
 	var comment_id = obj.value;
+	var comment = getComment(comment_id);
 	var comment_content_wrapper = obj.parentElement.parentElement.querySelector(".comment_content_wrapper");
-
+	
 	var tag = "";
 	tag += "<div class=\"comment_modifing\">";
-	tag += "<textarea class=\"comment_modifing_area\"></textarea>";
-	tag += "<button class=\"comment_modifing_button\">수정</button>";
-	tag += "<button onclick=\"cancelCommentModifing(obj)\" class=\"comment_modifing_cancel_button\">취소</button>";
+	tag += "<textarea class=\"comment_modifing_area\">" + comment.content + "</textarea>";
+	tag += "<button onclick=\"modifyComment(this)\" value=\"" + comment.comment_id + "\" class=\"comment_modifing_button\">수정</button>";
+	tag += "<button onclick=\"loadCommentList()\" class=\"comment_modifing_cancel_button\">취소</button>";
 	tag += "</div>";
 	
-	console.log(comment_content_wrapper);
 	comment_content_wrapper.innerHTML = tag;
-}
-
-function cancelCommentModifing(obj) {
-	var comment_id = obj.value;
-
 }
 
 
 
 $(function() {
-	getCommentList();
+	loadCommentList();
 	getLike();
 	
 	$("#modify_button").on("click", function() {
@@ -237,7 +259,9 @@ $(function() {
 	$("#comment_regist_area").focusin(function() {
 		showCommentRegistButton();
 	});
-
+	
+	getComment(100);
+	
 });
 
 

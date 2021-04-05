@@ -15,6 +15,21 @@ public class CommentController {
 	
 	@Autowired
 	CommentService commentService;
+	
+	@RequestMapping(value = "/comment/get", method = RequestMethod.GET, produces = "application/text;charset=utf8")
+	public String get(int comment_id) {
+		ObjectMapper mapper = new ObjectMapper();
+		
+		String jsonString = "";
+		
+		try {
+			jsonString = mapper.writeValueAsString(commentService.get(comment_id));
+		} catch (JsonProcessingException e) {
+			e.printStackTrace();
+		}
+		
+		return jsonString;
+	}
 
 	@RequestMapping(value = "/comment/list", method = RequestMethod.GET, produces = "application/text;charset=utf8")
 	public String getList(int story_id) {
@@ -23,7 +38,7 @@ public class CommentController {
 		String jsonString = "";
 		
 		try {
-			jsonString = mapper.writeValueAsString(commentService.getCommentList(story_id));
+			jsonString = mapper.writeValueAsString(commentService.getList(story_id));
 		} catch (JsonProcessingException e) {
 			e.printStackTrace();
 		}
@@ -34,6 +49,11 @@ public class CommentController {
 	@RequestMapping(value = "/comment/regist", method = RequestMethod.POST)
 	public void regist(Comment comment) {
 		commentService.regist(comment);
+	}
+
+	@RequestMapping(value = "/comment/modify", method = RequestMethod.POST)
+	public void modify(Comment comment) {
+		commentService.modify(comment);
 	}
 	
 	@RequestMapping(value = "/comment/delete", method = RequestMethod.GET)
