@@ -8,8 +8,8 @@
 		<img id="logo" src="/resources/image/logo/yellow.png">
 	</a>
 	<span id="nav_right">
-		<a href="/user/board/poem">작품</a>
-		<a href="/user/board/story">이야기</a>
+		<a href="/user/board/poem/list">작품</a>
+		<a href="/user/board/story/list">이야기</a>
 		<%if (member_nav == null) { %>
 		<a href="/user/home#start">시작</a>
 		<%} else { %>

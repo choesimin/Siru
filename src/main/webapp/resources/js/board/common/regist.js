@@ -25,22 +25,16 @@ function regist() {
 
 $(function(){
 	$("#poem_mode").mousedown(function() {
-		$("#poem_mode").css("background-color","#fbbd0d");
-		$("#poem_mode").css("color","#2d2c2e");
-		$("#poem_mode").css("font-weight","bold");
+		$("#poem_mode").css("background-color","#fbbd0d40");
 		$("#story_mode").css("background-color","transparent");
-		$("#story_mode").css("color","#faf5e6");
-		$("#story_mode").css("font-weight","normal");
+		
 		flag = true;
 	});
 	
 	$("#story_mode").mousedown(function() {
-		$("#story_mode").css("background-color","#fbbd0d");
-		$("#story_mode").css("color","#2d2c2e");
-		$("#story_mode").css("font-weight","bold");
+		$("#story_mode").css("background-color","#fbbd0d40");
 		$("#poem_mode").css("background-color","transparent");
-		$("#poem_mode").css("color","#faf5e6");
-		$("#poem_mode").css("font-weight","normal");
+		
 		flag = false;
 	});
 	
@@ -48,7 +42,7 @@ $(function(){
 		regist();
 	});
 	
-	$('input[type="text"]').keydown(function() {
+	$('input[type="text"]').keydown(function(event) {
 		if (event.keyCode == 13) {
 			event.preventDefault();
 		}

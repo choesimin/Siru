@@ -7,6 +7,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.simin.siru.model.common.SecureManager;
 import com.simin.siru.model.domain.Member;
 import com.simin.siru.model.domain.ResponseData;
 import com.simin.siru.model.repository.MemberDAO;
@@ -21,7 +22,10 @@ public class MemberServiceImpl implements MemberService {
 	public ResponseData regist(Member member) {
 		Member memberById = memberDAO.selectById(member.getId());
 		Member memberByNickname = memberDAO.selectByNickname(member.getNickname());
+
 		ResponseData responseData = new ResponseData();
+		SecureManager secureManager = new SecureManager();
+
 		String message = "";
 		int code = 0;
 		
@@ -32,6 +36,7 @@ public class MemberServiceImpl implements MemberService {
 			message = "아이디(<span class=\"color_yellow\">" + memberById.getId() + "</span>)가 중복됩니다.";
 			code = 2;
 		} else {
+			member.setPassword(secureManager.getSecureData(member.getPassword()));
 			memberDAO.insert(member);
 			message = "환영합니다 <span class=\"color_yellow\">" + member.getNickname() + "</span> 작가님! <br/> 로그인하여 시작하세요.";
 			code = 10;
@@ -45,9 +50,13 @@ public class MemberServiceImpl implements MemberService {
 
 	@Override
 	public ResponseData login(Member member, HttpSession session) {
+		ResponseData responseData = new ResponseData();
+		SecureManager secureManager = new SecureManager();
+		
+		member.setPassword(secureManager.getSecureData(member.getPassword()));
 		Member memberById = memberDAO.selectById(member.getId());
 		Member member_result = memberDAO.selectByIdPassword(member);
-		ResponseData responseData = new ResponseData();
+
 		String message = "";
 		String url = "";
 		int code = 0;
@@ -91,6 +100,7 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public ResponseData changePassword(Member member) {
 		ResponseData responseData = new ResponseData();
+		SecureManager secureManager = new SecureManager();
 		
 		String message = "";
 		int code = 0;
@@ -105,8 +115,8 @@ public class MemberServiceImpl implements MemberService {
 		} else {
 			Member member_update = new Member();
 			member_update.setMember_id(member_id.getMember_id());
-			member_update.setPassword(member.getPassword());
-
+			member_update.setPassword(secureManager.getSecureData(member.getPassword()));
+			
 			memberDAO.updatePassword(member_update);
 
 			message = "<span class=\"color_yellow\">" + member_id.getNickname() + "</span> 님의 비밀번호가 변경되었습니다.";

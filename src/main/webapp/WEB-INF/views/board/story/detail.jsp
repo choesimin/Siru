@@ -8,8 +8,8 @@
 <html>
 <head>
 <%@ include file="../../common/header.jsp"%>
-<link rel="stylesheet" type="text/css" href="/resources/css/board/detail/story.css">
-<script src="/resources/js/board/detail/story.js"></script>
+<link rel="stylesheet" type="text/css" href="/resources/css/board/story/detail.css">
+<script src="/resources/js/board/story/detail.js"></script>
 </head>
 <body>
 	<%@ include file="../../common/nav_bar.jsp"%>

@@ -1,7 +1,7 @@
 function modifyStory() {
 	var story_id = $("#story_id").val();
 
-	location.href = "/user/board/form/modify/story?story_id=" + story_id;
+	location.href = "/user/board/story/modify/form?story_id=" + story_id;
 }
 
 function deleteStory() {
@@ -236,6 +236,7 @@ function showCommentModifingArea(obj) {
 	tag += "</div>";
 	
 	comment_content_wrapper.innerHTML = tag;
+	comment_content_wrapper.querySelector("textarea").focus();
 }
 
 
