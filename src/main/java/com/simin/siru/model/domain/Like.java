@@ -8,5 +8,6 @@ public class Like {
 	private int like_id;
 	private int member_id;
 	private int story_id;
+	private int poem_id;
 
 }

@@ -8,7 +8,7 @@
 <html>
 <head>
 <%@ include file="../../common/header.jsp"%>
-<link rel="stylesheet" type="text/css" href="/resources/css/board/story/detail.css">
+<link rel="stylesheet" type="text/css" href="/resources/css/board/common/detail.css">
 <script src="/resources/js/board/story/detail.js"></script>
 </head>
 <body>

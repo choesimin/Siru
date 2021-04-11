@@ -1,28 +1,28 @@
-function modifyStory() {
-	var story_id = $("#story_id").val();
+function modifyPoem() {
+	var poem_id = $("#poem_id").val();
 
-	location.href = "/user/board/story/modify/form?story_id=" + story_id;
+	location.href = "/user/board/poem/modify/form?poem_id=" + poem_id;
 }
 
-function deleteStory() {
+function deletePoem() {
 	if (confirm("글을 지우시겠습니까?")) {
-		var story_id = $("#story_id").val();
+		var poem_id = $("#poem_id").val();
 
-		location.href = "/user/board/story/delete?story_id=" + story_id;
+		location.href = "/user/board/poem/delete?poem_id=" + poem_id;
 	}
 }
 
 function likePost() {
 	var member_id = $("#member_id");
-	var story_id = $("#story_id");
+	var poem_id = $("#poem_id");
 
 	if (checkMemberLike() == true) {
 		$.ajax({
-			url : "/rest/story/like/cancel",
+			url : "/rest/poem/like/cancel",
 			method : "post",
 			data : {
 				member_id : member_id.val(),
-				story_id : story_id.val()
+				poem_id : poem_id.val()
 			},
 			success : function() {
 				getLike();
@@ -30,11 +30,11 @@ function likePost() {
 		});
 	} else {
 		$.ajax({
-			url : "/rest/story/like",
+			url : "/rest/poem/like",
 			method : "post",
 			data : {
 				member_id : member_id.val(),
-				story_id : story_id.val()
+				poem_id : poem_id.val()
 			},
 			success : function() {
 				getLike();
@@ -44,11 +44,11 @@ function likePost() {
 }
 
 function getLike() {
-	var story_id = $("#story_id").val();
+	var poem_id = $("#poem_id").val();
 	var like_count = $("#like_count");
 	
 	$.ajax({
-		url : "/rest/story/like/count?story_id=" + story_id,
+		url : "/rest/poem/like/count?poem_id=" + poem_id,
 		method : "get",
 		success : function(responseData) {
 			like_count.html(responseData);
@@ -62,15 +62,15 @@ function checkMemberLike() {
 	var flag = false;
 
 	var member_id = $("#member_id");
-	var story_id = $("#story_id");
+	var poem_id = $("#poem_id");
 	
 	$.ajax({
-		url : "/rest/story/like/check",
+		url : "/rest/poem/like/check",
 		async : false,
 		method : "post",
 		data : {
 			member_id : member_id.val(),
-			story_id : story_id.val()
+			poem_id : poem_id.val()
 		},
 		success : function(responseData) {
 			flag = responseData;
@@ -108,7 +108,7 @@ function hideCommentRegistButton() {
 
 function registComment() {
 	var member_id = $("#member_id");
-	var story_id = $("#story_id");
+	var poem_id = $("#poem_id");
 	var comment = $("#comment_regist_area");
 	
 	if (comment.val() != "") {
@@ -116,7 +116,7 @@ function registComment() {
 			url : "/rest/comment/regist",
 			data : {
 				member_id : member_id.val(),
-				story_id : story_id.val(),
+				poem_id : poem_id.val(),
 				content : comment.val()
 			},
 			method : "post",
@@ -184,13 +184,13 @@ function getComment(comment_id) {
 
 function loadCommentList() {
 	var comment_list = $("#comment_list");
-	var story_id = $("#story_id");
+	var poem_id = $("#poem_id");
 	var member_id = $("#member_id");
 	
 	$.ajax({
 		url : "/rest/comment/list",
 		data : {
-			story_id : story_id.val()
+			poem_id : poem_id.val()
 		},
 		method : "get",
 		success : function(responseData) {
@@ -242,23 +242,14 @@ function showCommentModifingArea(obj) {
 
 
 $(function() {
-	loadCommentList();
 	getLike();
 	
 	$("#modify_button").on("click", function() {
-		modifyStory();
+		modifyPoem();
 	});
 
 	$("#delete_button").on("click", function() {
-		deleteStory();
-	});
-	
-	$("#comment_regist_button").on("click", function() {
-		registComment();
-	});
-	
-	$("#comment_regist_area").focusin(function() {
-		showCommentRegistButton();
+		deletePoem();
 	});
 	
 });

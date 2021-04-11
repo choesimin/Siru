@@ -6,47 +6,47 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.simin.siru.model.domain.Like;
-import com.simin.siru.model.domain.Story;
+import com.simin.siru.model.domain.Poem;
 import com.simin.siru.model.repository.LikeDAO;
-import com.simin.siru.model.repository.StoryDAO;
+import com.simin.siru.model.repository.PoemDAO;
 
 @Service
-public class StoryServiceImpl implements StoryService {
+public class PoemServiceImpl implements PoemService {
 	
 	@Autowired
-	private StoryDAO storyDAO;
+	private PoemDAO poemDAO;
 	
 	@Autowired
 	private LikeDAO likeDAO;
 
 	@Override
-	public void regist(Story story) {
-		storyDAO.insert(story);
+	public void regist(Poem poem) {
+		poemDAO.insert(poem);
 	}
 
 	@Override
-	public List<Story> selectAll() {
-		return storyDAO.selectAll();
+	public List<Poem> selectAll() {
+		return poemDAO.selectAll();
 	}
 
 	@Override
-	public Story select(int story_id) {
-		return storyDAO.select(story_id);
+	public Poem select(int poem_id) {
+		return poemDAO.select(poem_id);
 	}
 
 	@Override
-	public void modify(Story story) {
-		storyDAO.update(story);
+	public void modify(Poem poem) {
+		poemDAO.update(poem);
 	}
 
 	@Override
-	public void delete(int story_id) {
-		storyDAO.delete(story_id);
+	public void delete(int poem_id) {
+		poemDAO.delete(poem_id);
 	}
 
 	@Override
 	public void like(Like like) {
-		likeDAO.insertByStoryId(like);
+		likeDAO.insertByPoemId(like);
 	}
 
 	@Override
@@ -55,14 +55,14 @@ public class StoryServiceImpl implements StoryService {
 	}
 
 	@Override
-	public int countLike(int story_id) {
-		return likeDAO.countByStoryId(story_id);
+	public int countLike(int poem_id) {
+		return likeDAO.countByPoemId(poem_id);
 	}
 
 	@Override
 	public boolean checkMemberLike(Like like) {
 		boolean flag = false;
-		List<Like> like_list = likeDAO.selectByMemberIdAndStoryId(like);
+		List<Like> like_list = likeDAO.selectByMemberIdAndPoemId(like);
 		
 		if (like_list.size() > 0) {
 			flag = true;

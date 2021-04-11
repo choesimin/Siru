@@ -1,9 +1,11 @@
+<%@page import="com.simin.siru.model.domain.Poem"%>
 <%@page import="com.simin.siru.model.domain.Story"%>
 <%@page import="java.util.List"%>
 <%@ page contentType="text/html;charset=UTF-8"%>
 <%@ page import="com.simin.siru.model.domain.Member"%>
 <%
 	Member member_home = (Member)session.getAttribute("member");
+	List<Poem> poem_list = (List<Poem>)request.getAttribute("poem_list");
 	List<Story> story_list = (List<Story>)request.getAttribute("story_list");
 %>
 <!DOCTYPE html>
@@ -35,7 +37,7 @@
 			</div>
 		</div>
 		<div id="best">
-			<h2>0개의 작품, <%=story_list.size() %>개의 이야기.</h2>
+			<h2><%=poem_list.size() %>편의 작품, <%=story_list.size() %>개의 이야기.</h2>
 			<div id="best_poem">
 				<h3>공감 作</h3><a href="/poem" class="float_right">...</a>
 				<table>
@@ -77,6 +79,7 @@
 				</table>
 			</div>
 		</div>
+		<%if (member_home == null) { %>
 		<div id="intro">
 			<div id="birth">
 				<h4>시루는..</h4>
@@ -108,7 +111,6 @@
 				</p>
 			</div>
 		</div>
-		<%if (member_home == null) { %>
 		<div id="start">
 			<h3>시작하세요.</h3>
 			<form id="login">
@@ -144,7 +146,9 @@
 			</form>
 		</div>
 		<%} else { %>
-		
+			<div>
+				내가 쓴 글을 확인할 수 있는 곳
+			</div>
 		<%} %>
 	</div>
 </body>

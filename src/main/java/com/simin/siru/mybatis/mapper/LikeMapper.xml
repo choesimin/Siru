@@ -2,24 +2,42 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="Like">
 
-	<insert id="insert" parameterType="Like">
+	<insert id="insertByPoemId" parameterType="Like">
+		insert into likes(member_id, poem_id)
+		values(#{member_id}, #{poem_id})
+	</insert>
+	<insert id="insertByStoryId" parameterType="Like">
 		insert into likes(member_id, story_id)
 		values(#{member_id}, #{story_id})
 	</insert>
+
+
+	<select id="countByPoemId" parameterType="int" resultType="int">
+		select count(*) from likes
+		where poem_id = #{poem_id}
+	</select>
 	
 	<select id="countByStoryId" parameterType="int" resultType="int">
 		select count(*) from likes
 		where story_id = #{story_id}
 	</select>
+
 	
+	<select id="selectByMemberIdAndPoemId" parameterType="Like" resultType="Like">
+		select member_id, poem_id from likes
+		where member_id = #{member_id} and poem_id = #{poem_id}
+	</select>
 	<select id="selectByMemberIdAndStoryId" parameterType="Like" resultType="Like">
 		select member_id, story_id from likes
 		where member_id = #{member_id} and story_id = #{story_id}
 	</select>
 	
+	
 	<delete id="delete" parameterType="Like">
 		delete from likes
-		where member_id = #{member_id} and story_id = #{story_id}
+		where member_id = #{member_id} 
+			and (story_id = #{story_id} or poem_id = #{poem_id})
 	</delete>
+
 
 </mapper>

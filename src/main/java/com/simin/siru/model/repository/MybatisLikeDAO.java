@@ -15,19 +15,34 @@ public class MybatisLikeDAO implements LikeDAO {
 	private SqlSessionTemplate sqlSessionTemplate;
 
 	@Override
-	public void insert(Like like) {
-		sqlSessionTemplate.insert("Like.insert", like);
+	public void insertByPoemId(Like like) {
+		sqlSessionTemplate.insert("Like.insertByPoemId", like);
+	}
+	@Override
+	public void insertByStoryId(Like like) {
+		sqlSessionTemplate.insert("Like.insertByStoryId", like);
 	}
 
+
+	@Override
+	public int countByPoemId(int poem_id) {
+		return sqlSessionTemplate.selectOne("Like.countByPoemId", poem_id);
+	}
 	@Override
 	public int countByStoryId(int story_id) {
 		return sqlSessionTemplate.selectOne("Like.countByStoryId", story_id);
 	}
 
+
+	@Override
+	public List<Like> selectByMemberIdAndPoemId(Like like) {
+		return sqlSessionTemplate.selectList("Like.selectByMemberIdAndPoemId", like);
+	}
 	@Override
 	public List<Like> selectByMemberIdAndStoryId(Like like) {
 		return sqlSessionTemplate.selectList("Like.selectByMemberIdAndStoryId", like);
 	}
+
 
 	@Override
 	public void delete(Like like) {

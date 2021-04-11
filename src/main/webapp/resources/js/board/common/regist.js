@@ -6,13 +6,17 @@ function regist() {
 
 	if (title.val() != "" && content.val() != "") {
 		if (flag == true) {
-			alert("poem mode");
+			$("#write_form").attr({
+				action : "/user/board/poem/regist",
+				method : "post"
+			});
+			$("#write_form").submit();
 		} else if (flag == false) {
-				$("#write_form").attr({
-					action : "/user/board/story/regist",
-					method : "post"
-				});
-				$("#write_form").submit();
+			$("#write_form").attr({
+				action : "/user/board/story/regist",
+				method : "post"
+			});
+			$("#write_form").submit();
 		} else {
 			$("#regist_button").html("선택 필수");
 		}

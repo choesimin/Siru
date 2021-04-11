@@ -1,7 +1,3 @@
-#post {
-	border-bottom: 1px solid #fbbd0d;
-}
-
 #post h2 {
 	color: #fbbd0d;
 }
@@ -53,6 +49,7 @@
 
 
 #comment_area {
+	border-top: 1px solid #fbbd0d;
 	width: 100%;
 }
 
