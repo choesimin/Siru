@@ -15,12 +15,13 @@
 	width: 100%;
 	margin-bottom: 50px;
 	padding: 30px 20px;
-	border: 1px solid #fbbd0d;
+	border: 1px solid #fbbd0dbf;
 	text-align: center;
 }
 .post:hover {
 	color: #fbbd0d;
-	transition: 0.3s;
+	border: 1px solid #fbbd0d;
+	transition: 0.2s;
 }
 .post h3 {
 	margin: 30px 0;
@@ -36,8 +37,8 @@
 	left: -50%;
 	padding-bottom: 150px;
 }
-#page_box::after {
-	display: block;
+#page_box:after {
+	display: table;
 	clear: both;
 	content: "";
 }
