@@ -18,6 +18,9 @@ function regist() {
 	} else if (nickname.val() == "") {
 		guide.html("닉네임을 입력해주세요.");
 		nickname.focus();
+	} else if (email.val() == "") {
+		guide.html("이메일을 입력해주세요.");
+		email.focus();
 	} else if (password.val() != repassword.val()) {
 		guide.html("비밀번호와 재입력 란의 비밀번호가 다릅니다.");
 		password.focus();

@@ -20,7 +20,7 @@
 	<%@ include file="./common/write_button.jsp"%>
 	<div id="wrapper">
 		<div id="main">
-			<div id="talk">
+			<div id="welcome">
 				<h2><span class="color_yellow font_weight_bolder">시</span>와 <span class="color_yellow font_weight_bolder">글</span>이<br/>모이는 곳</h2>
 			</div>
 			<div id="poem">
@@ -39,44 +39,12 @@
 		<div id="best">
 			<h2><%=poem_list.size() %>편의 작품, <%=story_list.size() %>개의 이야기.</h2>
 			<div id="best_poem">
-				<h3>공감 作</h3><a href="/poem" class="float_right">...</a>
-				<table>
-					<tr>
-						<td><a href="#">this is..</a><span>User ID</span></td>
-					</tr>
-					<tr>
-						<td><a href="#">this is  of something..</a><span>User ID</span></td>
-					</tr>
-					<tr>
-						<td><a href="#"> of something..</a><span>User ID</span></td>
-					</tr>
-					<tr>
-						<td><a href="#">this this is title of something..</a><span>User ID</span></td>
-					</tr>
-					<tr>
-						<td><a href="#">this is title of something..</a><span>User ID</span></td>
-					</tr>
-				</table>
+				<h3>공감 작품</h3>
+
 			</div>
 			<div id="best_story">
-				<h3>공감 이야기</h3><a href="/story" class="float_right">...</a>
-				<table>
-					<tr>
-						<td><a href="#">this is title of something..</a><span>User ID</span></td>
-					</tr>
-					<tr>
-						<td><a href="#">this is title of..</a><span>User ID</span></td>
-					</tr>
-					<tr>
-						<td><a href="#">this is .</a><span>User ID</span></td>
-					</tr>
-					<tr>
-						<td><a href="#">this is title g..</a><span>User ID</span></td>
-					</tr>
-					<tr>
-						<td><a href="#">ttitle of something..</a><span>User ID</span></td>
-					</tr>
-				</table>
+				<h3>공감 이야기</h3>
+				
 			</div>
 		</div>
 		<%if (member_home == null) { %>
@@ -137,18 +105,25 @@
 			</form>
 			<form id="regist">
 				<h4 align="center" class="font_size_25 margin_bottom_30" id="regist_guide">가입</h4>
-				<input type="text" placeholder="(필수) 아이디 (6~20)" maxlength="20" id="id_regist" class="no_space no_special only_alphabet">
-				<input type="password" placeholder="(필수) 비밀번호 (6~20)" maxlength="20" id="password_regist" class="no_space only_alphabet">
-				<input type="password" placeholder="(필수) 비밀번호 확인" maxlength="20" id="repassword_regist" class="no_space only_alphabet">
-				<input type="text" placeholder="(필수) 닉네임 (한글 1~20)" maxlength="20" id="nickname_regist" class="only_hangul">
-				<input type="text" placeholder="(선택) 이메일" maxlength="40" id="email_regist" class="no_space only_alphabet">
+				<input type="text" placeholder="아이디 (6~20)" maxlength="20" id="id_regist" class="no_space no_special only_alphabet">
+				<input type="password" placeholder="비밀번호 (6~20)" maxlength="20" id="password_regist" class="no_space only_alphabet">
+				<input type="password" placeholder="비밀번호 확인" maxlength="20" id="repassword_regist" class="no_space only_alphabet">
+				<input type="text" placeholder="닉네임 (한글 1~20)" maxlength="20" id="nickname_regist" class="only_hangul">
+				<input type="text" placeholder="이메일 (ID/PW 찾기에 사용)" maxlength="40" id="email_regist" class="no_space only_alphabet">
 				<button id="regist_button" type="button">등록</button>
 			</form>
 		</div>
 		<%} else { %>
-			<div>
-				내가 쓴 글을 확인할 수 있는 곳
-			</div>
+		<div id="my">
+			<a href="#">내 정보</a>
+			<a href="#">내 작품</a>
+			<a href="#">내 이야기</a>
+			<%if (member_home.getId().equals("administrator")) { %>
+				<a href="#">회원 관리</a>
+				<a href="#">작품 관리</a>
+				<a href="#">이야기 관리</a>
+			<%} %>
+		</div>
 		<%} %>
 	</div>
 </body>

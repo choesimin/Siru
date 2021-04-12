@@ -21,7 +21,7 @@ create table member (
  , id varchar(20) not null
  , password varchar(100) not null
  , nickname varchar(20) not null
- , email varchar(100) default null
+ , email varchar(100) not null
  , date timestamp not null default current_timestamp
  , primary key (member_id)
 ) charset utf8;

@@ -112,6 +112,8 @@ a {
 	transition: 0.2s;
 }
 
-@media screen and (max-width: 600px) {
-
+@media screen and (max-width: 1000px) {
+	#wrapper {
+		width: 95%;
+	}
 }
