@@ -30,6 +30,12 @@
 		where poem_id = #{poem_id}
 	</select>
 	
+	<select id="selectByMemberIdOrderByDate" parameterType="int" resultMap="poemMemberMap">
+		<include refid="selectCommon"/>
+		where member_id = #{member_id}
+		order by date desc
+	</select>
+	
 	<update id="update" parameterType="Poem">
 		update poem set title = #{title}, content = #{content}
 		where poem_id = #{poem_id}

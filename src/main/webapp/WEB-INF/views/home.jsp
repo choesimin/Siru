@@ -27,15 +27,16 @@
 			</div>
 			<div id="poem">
 				<h2 class="color_yellow">하루</h2>
-				<p>흙과 섞이어 자연으로 누울<br/>
-				내가 보이는데<br/>
-				흔적을 구하려는 옳지 않음이<br/>
-				옳음처럼 나를 결박합니다<br/>
-				띠를 두른 흙냄새가<br/>
-				목을 감아도<br/>
-				묶어서 던져 버리지 못하는<br/>
-				오늘은 옳지 않음의 반복입니다</p>
-				<span>- 김초혜 <일기> -</span>
+				<pre>
+흙과 섞이어 자연으로 누울
+내가 보이는데
+흔적을 구하려는 옳지 않음이
+옳음처럼 나를 결박합니다
+띠를 두른 흙냄새가
+목을 감아도
+묶어서 던져 버리지 못하는
+오늘은 옳지 않음의 반복입니다
+				</pre>
 			</div>
 		</div>
 		<div id="best">
@@ -128,13 +129,15 @@
 		</div>
 		<%} else { %>
 		<div id="my">
-			<a href="#">내 정보</a>
-			<a href="#">내 작품</a>
-			<a href="#">내 이야기</a>
+			<a href="/user/my/poem/list">내 작품</a>
+			<a href="/user/my/story/list">내 이야기</a>
+			<a href="/user/my/info">내 정보</a>
 			<%if (member_home.getId().equals("administrator")) { %>
-				<a href="#">회원 관리</a>
-				<a href="#">작품 관리</a>
-				<a href="#">이야기 관리</a>
+			<br/>
+			<br/>
+			<a href="/admin/member/list">회원 관리</a>
+			<a href="/admin/poem/list">작품 관리</a>
+			<a href="/admin/story/list">이야기 관리</a>
 			<%} %>
 		</div>
 		<%} %>

@@ -1,23 +1,23 @@
 <%@page import="com.simin.siru.model.common.Pager"%>
 <%@page import="java.util.List"%>
-<%@page import="com.simin.siru.model.domain.Story"%>
+<%@page import="com.simin.siru.model.domain.Poem"%>
 <%@ page contentType="text/html;charset=UTF-8"%>
 <%
 	Pager pager = (Pager)request.getAttribute("pager");
-	List<Story> story_list = (List<Story>)request.getAttribute("story_list");
+	List<Poem> poem_list = (List<Poem>)request.getAttribute("poem_list");
 %>
 <!DOCTYPE html>
 <html>
 <head>
 <%@ include file="../../common/header.jsp"%>
-<link rel="stylesheet" type="text/css" href="/resources/css/board/common/list.css">
+<link rel="stylesheet" type="text/css" href="/resources/css/my/common/list.css">
 <link rel="stylesheet" type="text/css" href="/resources/css/common/pager.css">
 </head>
 <body>
 	<%@ include file="../../common/nav_bar.jsp"%>
 	<%@ include file="../../common/write_button.jsp"%>
     <div id="wrapper">
-        <h2 id="board_title">이야기</h2>
+        <h2 id="board_title">내 작품</h2>
         <div id="board">
         	<%
         		int number = pager.getNumber();
@@ -26,13 +26,13 @@
         	<%for (int i = 0; i < pager.getPageSize(); i++) { %>
         	<%if (number < 1) {break;} %>
         	<%
-        		Story story = story_list.get(currentPosition);
+        		Poem poem = poem_list.get(currentPosition);
         		currentPosition++;
         		number--;
         	%>
-            <a class="post" href="/user/board/story/detail?story_id=<%=story.getStory_id() %>">
-            	<h3><%=story.getTitle() %></h3>
-            	<p><%=story.getMember().getNickname() %></p>
+            <a class="post" href="/user/board/poem/detail?poem_id=<%=poem.getPoem_id() %>">
+            	<span class="title"><%=poem.getTitle() %></span>
+            	<span class="date"><%=poem.getDate() %></span>
             </a>
             <%} %>
         </div>
@@ -40,17 +40,17 @@
         
 		<div id="page_box">
 			<%if (pager.getCurrentPage() > pager.getBlockSize()) { %>
-			<a href="/user/board/story/list?currentPage=1">
+			<a href="/user/my/poem/list?currentPage=1">
 				<div class="page"><<</div>
 			</a>
-			<a href="/user/board/story/list?currentPage=<%=pager.getFirstPage() - 1 %>">
+			<a href="/user/my/poem/list?currentPage=<%=pager.getFirstPage() - 1 %>">
 				<div class="page"><</div>
 			</a>
 			<%} %>
 
 			<%for (int i = pager.getFirstPage(); i <= pager.getLastPage(); i++) { %>
 			<%if (i > pager.getTotalPage()) {break;} %>
-			<a href="/user/board/story/list?currentPage=<%=i %>">
+			<a href="/user/my/poem/list?currentPage=<%=i %>">
 				<div class="page <%if (pager.getCurrentPage() == i) { %>page_active<%} %>">
 				<%=i %>
 				</div>
@@ -58,10 +58,10 @@
 			<%} %>
 
 			<%if (pager.getCurrentPage() <= pager.getTotalPage() - (pager.getTotalPage() % pager.getBlockSize())) { %>
-			<a href="/user/board/story/list?currentPage=<%=pager.getLastPage() + 1 %>">
+			<a href="/user/my/poem/list?currentPage=<%=pager.getLastPage() + 1 %>">
 				<div class="page">></div>
 			</a>
-			<a href="/user/board/story/list?currentPage=<%=pager.getTotalPage() %>">
+			<a href="/user/my/poem/list?currentPage=<%=pager.getTotalPage() %>">
 				<div class="page">>></div>
 			</a>
 			<%} %>

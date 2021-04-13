@@ -11,6 +11,7 @@
 <head>
 <%@ include file="../../common/header.jsp"%>
 <link rel="stylesheet" type="text/css" href="/resources/css/board/common/list.css">
+<link rel="stylesheet" type="text/css" href="/resources/css/common/pager.css">
 </head>
 <body>
 	<%@ include file="../../common/nav_bar.jsp"%>
@@ -35,6 +36,8 @@
             </a>
             <%} %>
         </div>
+        
+        
 		<div id="page_box">
 			<%if (pager.getCurrentPage() > pager.getBlockSize()) { %>
 			<a href="/user/board/poem/list?currentPage=1">

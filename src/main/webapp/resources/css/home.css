@@ -32,14 +32,11 @@
 
 #main #poem h2 {
 	font-size: 50px;
+	margin-bottom: 50px;
 }
 
-#main #poem p {
+#main #poem pre {
 	line-height: 50px;
-}
-
-#main #poem span {
-	display: block;
 }
 
 
@@ -69,6 +66,11 @@
 	display: block;
 	padding: 10px;
 	border-top: 1px solid #fbbd0dbf;
+}
+
+#best .post:hover {
+	transition: 0.2s;
+	color: #fbbd0d;
 }
 
 #best .post .writer {

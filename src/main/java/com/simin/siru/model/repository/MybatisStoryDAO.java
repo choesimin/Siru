@@ -30,6 +30,11 @@ public class MybatisStoryDAO implements StoryDAO {
 	}
 
 	@Override
+	public List<Story> selectByMemberIdOrderByDate(int member_id) {
+		return sqlSessionTemplate.selectList("Story.selectByMemberIdOrderByDate", member_id);
+	}
+
+	@Override
 	public void update(Story story) {
 		sqlSessionTemplate.update("Story.update", story);
 	}

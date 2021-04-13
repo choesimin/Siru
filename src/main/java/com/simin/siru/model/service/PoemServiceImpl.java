@@ -35,6 +35,11 @@ public class PoemServiceImpl implements PoemService {
 	}
 
 	@Override
+	public List<Poem> selectByMember(int member_id) {
+		return poemDAO.selectByMemberIdOrderByDate(member_id);
+	}
+
+	@Override
 	public Poem[] selectBestFive() {
 		List<Like> like_list = likeDAO.selectPoemOrderByCount();
 

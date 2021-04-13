@@ -37,6 +37,8 @@
 		<%if (member != null) { %>
 		<input type="hidden" id="member_id" value="<%=member.getMember_id() %>">
 		<%} %>
+        
+        <div style="height: 100px;"></div>
 	</div>
 </body>
 </html>

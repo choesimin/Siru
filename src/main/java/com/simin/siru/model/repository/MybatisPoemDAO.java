@@ -30,6 +30,11 @@ public class MybatisPoemDAO implements PoemDAO {
 	}
 
 	@Override
+	public List<Poem> selectByMemberIdOrderByDate(int member_id) {
+		return sqlSessionTemplate.selectList("Poem.selectByMemberIdOrderByDate", member_id);
+	}
+
+	@Override
 	public void update(Poem poem) {
 		sqlSessionTemplate.update("Poem.update", poem);
 	}

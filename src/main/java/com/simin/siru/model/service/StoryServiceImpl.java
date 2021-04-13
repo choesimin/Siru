@@ -35,6 +35,11 @@ public class StoryServiceImpl implements StoryService {
 	}
 
 	@Override
+	public List<Story> selectByMember(int member_id) {
+		return storyDAO.selectByMemberIdOrderByDate(member_id);
+	}
+
+	@Override
 	public Story[] selectBestFive() {
 		List<Like> like_list = likeDAO.selectStoryOrderByCount();
 

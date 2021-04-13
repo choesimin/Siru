@@ -45,6 +45,8 @@
         	<div id="comment_list"></div>
 
 		</div>
+
+        <div style="height: 100px;"></div>
 	</div>
 </body>
 </html>

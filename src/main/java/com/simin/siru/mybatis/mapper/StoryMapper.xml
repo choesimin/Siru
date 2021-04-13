@@ -29,6 +29,12 @@
 		<include refid="selectCommon"/>
 		where story_id = #{story_id}
 	</select>
+
+	<select id="selectByMemberIdOrderByDate" parameterType="int" resultMap="storyMemberMap">
+		<include refid="selectCommon"/>
+		where member_id = #{member_id}
+		order by date desc
+	</select>
 	
 	<update id="update" parameterType="Story">
 		update story set title = #{title}, content = #{content}
