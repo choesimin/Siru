@@ -16,10 +16,27 @@
 		select count(*) from likes
 		where poem_id = #{poem_id}
 	</select>
-	
 	<select id="countByStoryId" parameterType="int" resultType="int">
 		select count(*) from likes
 		where story_id = #{story_id}
+	</select>
+	
+	
+	<select id="selectPoemOrderByCount" resultType="Like">
+		select poem_id, count(*) as count
+		from likes
+		where (poem_id is not null)
+			and (date between date_add(now(), interval - 1 month) and now())
+		group by poem_id
+		order by count desc
+	</select>
+	<select id="selectStoryOrderByCount" resultType="Like">
+		select story_id, count(*) as count
+		from likes
+		where (story_id is not null)
+			and (date between date_add(now(), interval - 1 month) and now())
+		group by story_id
+		order by count desc
 	</select>
 
 	

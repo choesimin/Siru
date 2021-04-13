@@ -10,6 +10,7 @@ public interface PoemService {
 	public void regist(Poem poem);
 	public List<Poem> selectAll();
 	public Poem select(int poem_id);
+	public Poem[] selectBestFive();
 	public void modify(Poem poem);
 	public void delete(int poem_id);
 	public void like(Like like);

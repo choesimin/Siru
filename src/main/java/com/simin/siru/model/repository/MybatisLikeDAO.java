@@ -32,6 +32,16 @@ public class MybatisLikeDAO implements LikeDAO {
 	public int countByStoryId(int story_id) {
 		return sqlSessionTemplate.selectOne("Like.countByStoryId", story_id);
 	}
+	
+	
+	@Override
+	public List<Like> selectPoemOrderByCount() {
+		return sqlSessionTemplate.selectList("Like.selectPoemOrderByCount");
+	}
+	@Override
+	public List<Like> selectStoryOrderByCount() {
+		return sqlSessionTemplate.selectList("Like.selectStoryOrderByCount");
+	}
 
 
 	@Override

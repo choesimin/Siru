@@ -35,6 +35,25 @@ public class StoryServiceImpl implements StoryService {
 	}
 
 	@Override
+	public Story[] selectBestFive() {
+		List<Like> like_list = likeDAO.selectStoryOrderByCount();
+
+		if (like_list.size() >= 5) {
+			like_list = like_list.subList(0, 5);
+		} else {
+			like_list = like_list.subList(0, like_list.size());
+		}
+
+		Story[] story_array = new Story[like_list.size()];
+
+		for (int i = 0; i < story_array.length; i++) {
+			story_array[i] = storyDAO.select(like_list.get(i).getStory_id());
+		}
+		
+		return story_array;
+	}
+
+	@Override
 	public void modify(Story story) {
 		storyDAO.update(story);
 	}

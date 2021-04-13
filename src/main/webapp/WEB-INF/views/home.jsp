@@ -7,6 +7,8 @@
 	Member member_home = (Member)session.getAttribute("member");
 	List<Poem> poem_list = (List<Poem>)request.getAttribute("poem_list");
 	List<Story> story_list = (List<Story>)request.getAttribute("story_list");
+	Poem[] poem_best_five = (Poem[])request.getAttribute("poem_best_five");
+	Story[] story_best_five = (Story[])request.getAttribute("story_best_five");
 %>
 <!DOCTYPE html>
 <html>
@@ -40,19 +42,19 @@
 			<h2><%=poem_list.size() %>편의 작품, <%=story_list.size() %>개의 이야기.</h2>
 			<div id="best_poem">
 				<h3>공감 작품</h3>
-				<%for (int i = 0; i < 5; i++) { %>
-				<a href="#" class="post">
-					<span class="title">이 곳은 제목이 니다.</span>
-					<span class="writer">작성자</span>
+				<%for (int i = 0; i < poem_best_five.length; i++) { %>
+				<a href="/user/board/poem/detail?poem_id=<%=poem_best_five[i].getPoem_id() %>" class="post">
+					<span class="title"><%=poem_best_five[i].getTitle() %></span>
+					<span class="writer"><%=poem_best_five[i].getMember().getNickname() %></span>
 				</a>
 				<%} %>
 			</div>
 			<div id="best_story">
 				<h3>공감 이야기</h3>
-				<%for (int i = 0; i < 5; i++) { %>
-				<a href="#" class="post">
-					<span class="title">이 곳은 제목이 오는 곳dsfasdfasdfasdfasdf입니다.</span>
-					<span class="writer">작성자</span>
+				<%for (int i = 0; i < story_best_five.length; i++) { %>
+				<a href="/user/board/story/detail?story_id=<%=story_best_five[i].getStory_id() %>" class="post">
+					<span class="title"><%=story_best_five[i].getTitle() %></span>
+					<span class="writer"><%=story_best_five[i].getMember().getNickname() %></span>
 				</a>
 				<%} %>
 			</div>

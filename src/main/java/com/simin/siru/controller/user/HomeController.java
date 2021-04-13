@@ -28,10 +28,15 @@ public class HomeController {
 		
 		List<Poem> poem_list = poemService.selectAll();
 		List<Story> story_list = storyService.selectAll();
+		Poem[] poem_best_five = poemService.selectBestFive();
+		Story[] story_best_five = storyService.selectBestFive();
 		
 		mav.setViewName("home");
+
 		mav.addObject("poem_list", poem_list);
 		mav.addObject("story_list", story_list);
+		mav.addObject("poem_best_five", poem_best_five);
+		mav.addObject("story_best_five", story_best_five);
 		
 		return mav;
 	}

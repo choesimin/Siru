@@ -35,6 +35,25 @@ public class PoemServiceImpl implements PoemService {
 	}
 
 	@Override
+	public Poem[] selectBestFive() {
+		List<Like> like_list = likeDAO.selectPoemOrderByCount();
+
+		if (like_list.size() >= 5) {
+			like_list = like_list.subList(0, 5);
+		} else {
+			like_list = like_list.subList(0, like_list.size());
+		}
+
+		Poem[] poem_array = new Poem[like_list.size()];
+
+		for (int i = 0; i < poem_array.length; i++) {
+			poem_array[i] = poemDAO.select(like_list.get(i).getPoem_id());
+		}
+		
+		return poem_array;
+	}
+
+	@Override
 	public void modify(Poem poem) {
 		poemDAO.update(poem);
 	}
