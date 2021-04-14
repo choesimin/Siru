@@ -1,0 +1,39 @@
+h2 {
+	margin-bottom: 30px;
+	text-align: center;
+	font-size: 40px;
+}
+
+#information {
+	margin: 0 auto;
+	text-align: center;
+	font-size: 18px;
+}
+
+#information td {
+	padding: 20px 40px;
+}
+
+#information tr td:nth-child(1) {
+	border-bottom: 1px solid #fbbd0dbf;
+}
+
+#information tr:last-child td {
+	border: none;
+	font-size: 16px;
+	opacity: 0.8;
+}
+
+#information button {
+	padding: 5px 10px;
+	background-color: transparent;
+    color: #faf5e6;
+    font-size: 14px;
+	border: 1px solid #faf5e64d;
+}
+
+#information button:hover {
+	transition: 0.2s;
+    color: #fbbd0d;
+	border: 1px solid #fbbd0d;
+}

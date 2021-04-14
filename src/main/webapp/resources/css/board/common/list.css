@@ -1,15 +1,16 @@
-/* 게시물 */
 #board_title {
-	padding-bottom: 30px;
+	margin-bottom: 30px;
 	text-align: center;
 	font-size: 40px;
 }
+
 #board {
 	width: 100%;
 	column-count: 4;
 	column-width: 200px;
 	column-gap: 50px;
 }
+
 .post {
 	display: inline-block;
 	width: 100%;
@@ -18,14 +19,17 @@
 	border: 1px solid #fbbd0dbf;
 	text-align: center;
 }
+
 .post:hover {
 	color: #fbbd0d;
 	border: 1px solid #fbbd0d;
 	transition: 0.2s;
 }
+
 .post h3 {
 	margin: 30px 0;
 }
+
 .post p {
 	float: right;
 	font-size: 12px;

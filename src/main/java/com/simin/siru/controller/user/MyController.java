@@ -65,9 +65,16 @@ public class MyController {
 		return mav;
 	}
 	
-	@RequestMapping(value = "/my/info", method = RequestMethod.GET)
-	public String getInfo() {
-		return "";
+	@RequestMapping(value = "/my/information", method = RequestMethod.GET)
+	public ModelAndView getInformation(HttpSession session) {
+		ModelAndView mav = new ModelAndView();
+		
+		Member member = (Member)session.getAttribute("member");
+		
+		mav.setViewName("my/information");
+		mav.addObject("member", member);
+
+		return mav;
 	}
 	
 

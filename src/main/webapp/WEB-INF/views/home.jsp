@@ -131,13 +131,13 @@
 		<div id="my">
 			<a href="/user/my/poem/list">내 작품</a>
 			<a href="/user/my/story/list">내 이야기</a>
-			<a href="/user/my/info">내 정보</a>
+			<a href="/user/my/information">내 정보</a>
 			<%if (member_home.getId().equals("administrator")) { %>
 			<br/>
 			<br/>
-			<a href="/admin/member/list">회원 관리</a>
 			<a href="/admin/poem/list">작품 관리</a>
 			<a href="/admin/story/list">이야기 관리</a>
+			<a href="/admin/member/list">회원 관리</a>
 			<%} %>
 		</div>
 		<%} %>
