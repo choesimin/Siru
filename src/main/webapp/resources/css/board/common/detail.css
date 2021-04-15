@@ -32,6 +32,7 @@
     color: #faf5e6;
     font-size: 12px;
 	border: 1px solid #faf5e64d;
+	outline: none;
 }
 
 #modify_button:hover, #delete_button:hover, #like_button:hover {
@@ -75,7 +76,7 @@
 }
 
 #comment_area #comment_regist #comment_regist_area:focus, .comment_modifing_area:focus {
-	border-color: #fbbd0d;
+	border-color: #fbbd0dbf;
 }
 
 #comment_area #comment_regist #comment_regist_button {
@@ -89,6 +90,7 @@
 	background-color: transparent;
     color: #faf5e6;
 	border: 1px solid #faf5e64d;
+	outline: none;
 }
 #comment_area #comment_regist #comment_regist_button:hover, .comment_modifing_button:hover, .comment_modifing_cancel_button:hover {
 	transition: 0.2s;
@@ -125,6 +127,7 @@
 	background-color: transparent;
     color: #faf5e6;
 	border: none;
+	outline: none;
 }
 
 #comment_area #comment_list .comment_delete_button:hover, .comment_modify_button:hover {

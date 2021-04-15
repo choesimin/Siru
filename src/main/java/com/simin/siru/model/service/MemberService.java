@@ -9,7 +9,9 @@ public interface MemberService {
 	
 	public ResponseData regist(Member member);
 	public ResponseData login(Member member, HttpSession session);
+	public Member get(int member_id);
 	public ResponseData findId(String email);
+	public void change(Member member);
 	public ResponseData changePassword(Member member);
 	
 }

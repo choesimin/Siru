@@ -26,7 +26,7 @@ public class MybatisMemberDAO implements MemberDAO {
 
 	@Override
 	public Member select(int member_id) {
-		return null;
+		return sqlSessionTemplate.selectOne("Member.select", member_id);
 	}
 
 	@Override

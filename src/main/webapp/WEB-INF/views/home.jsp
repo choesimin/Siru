@@ -21,6 +21,7 @@
 	<%@ include file="./common/nav_bar.jsp"%>
 	<%@ include file="./common/write_button.jsp"%>
 	<div id="wrapper">
+		<%if (member_home == null) { %>
 		<div id="main">
 			<div id="welcome">
 				<h2><span class="color_yellow font_weight_bolder">시</span>와 <span class="color_yellow font_weight_bolder">글</span>이<br/>모이는 곳</h2>
@@ -39,6 +40,7 @@
 				</pre>
 			</div>
 		</div>
+		<%} %>
 		<div id="best">
 			<h2><%=poem_list.size() %>편의 작품, <%=story_list.size() %>개의 이야기.</h2>
 			<div id="best_poem">
@@ -97,33 +99,33 @@
 			<h3>시작하세요.</h3>
 			<form id="login">
 				<h4 align="center" id="login_guide" class="font_size_25 margin_bottom_30">로그인</h4>
-				<input type="text" placeholder="아이디" maxlength="20" id="id_login" class="no_space no_special only_alphabet">
-				<input type="password" placeholder="비밀번호" maxlength="20" id="password_login" class="no_space only_alphabet">
+				<input type="text" placeholder="아이디" maxlength="20" id="id_login" class="no_space no_special only_alphabet"/>
+				<input type="password" placeholder="비밀번호" maxlength="20" id="password_login" class="no_space only_alphabet"/>
 				<button id="login_button" type="button">시작</button>
 				<div id="find_area">
 					<a href="javascript:showFindId()">아이디 찾기</a> | <a href="javascript:showChangePassword()">비밀번호 변경</a>
 					<div id="find_id">
 						<p id="find_guide">이메일을 입력하세요.</p>
-						<input type="text" placeholder="이메일" maxlength="40" id="email_find" class="no_space only_alphabet">
+						<input type="text" placeholder="이메일" maxlength="40" id="email_find" class="no_space only_alphabet"/>
 						<button type="button" onclick="findId()">찾기</button>
 					</div>
 					<div id="change_password">
 						<p id="change_guide">아이디와 이메일을 입력하고 비밀번호를 변경하세요.</p>
-						<input type="text" placeholder="아이디" maxlength="20" id="id_change" class="no_space no_special only_alphabet">
-						<input type="text" placeholder="이메일" maxlength="40" id="email_change" class="only_alphabet">
-						<input type="password" placeholder="새로운 비밀번호" maxlength="20" id="password_change" class="no_space only_alphabet">
-						<input type="password" placeholder="비밀번호 확인" maxlength="20" id="repassword_change" class="no_space only_alphabet">
+						<input type="text" placeholder="아이디" maxlength="20" id="id_change" class="no_space no_special only_alphabet"/>
+						<input type="text" placeholder="이메일" maxlength="40" id="email_change" class="only_alphabet"/>
+						<input type="password" placeholder="새로운 비밀번호" maxlength="20" id="password_change" class="no_space only_alphabet"/>
+						<input type="password" placeholder="비밀번호 확인" maxlength="20" id="repassword_change" class="no_space only_alphabet"/>
 						<button type="button" onclick="changePassword()">변경</button>
 					</div>
 				</div>
 			</form>
 			<form id="regist">
 				<h4 align="center" class="font_size_25 margin_bottom_30" id="regist_guide">가입</h4>
-				<input type="text" placeholder="아이디 (6~20)" maxlength="20" id="id_regist" class="no_space no_special only_alphabet">
-				<input type="password" placeholder="비밀번호 (6~20)" maxlength="20" id="password_regist" class="no_space only_alphabet">
-				<input type="password" placeholder="비밀번호 확인" maxlength="20" id="repassword_regist" class="no_space only_alphabet">
-				<input type="text" placeholder="닉네임 (한글 1~20)" maxlength="20" id="nickname_regist" class="only_hangul">
-				<input type="text" placeholder="이메일 (ID/PW 찾기에 사용)" maxlength="40" id="email_regist" class="no_space only_alphabet">
+				<input type="text" placeholder="아이디 (6~20)" maxlength="20" id="id_regist" class="no_space no_special only_alphabet"/>
+				<input type="password" placeholder="비밀번호 (6~20)" maxlength="20" id="password_regist" class="no_space only_alphabet"/>
+				<input type="password" placeholder="비밀번호 확인" maxlength="20" id="repassword_regist" class="no_space only_alphabet"/>
+				<input type="text" placeholder="닉네임 (한글 1~20)" maxlength="20" id="nickname_regist" class="only_hangul"/>
+				<input type="text" placeholder="이메일 (ID/PW 찾기에 사용)" maxlength="40" id="email_regist" class="no_space only_alphabet"/>
 				<button id="regist_button" type="button">등록</button>
 			</form>
 		</div>

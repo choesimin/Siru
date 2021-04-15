@@ -129,4 +129,17 @@ public class MemberServiceImpl implements MemberService {
 		return responseData;
 	}
 
+	@Override
+	public Member get(int member_id) {
+		return memberDAO.select(member_id);
+	}
+
+	@Override
+	public void change(Member member) {
+		SecureManager secureManager = new SecureManager();
+
+		member.setPassword(secureManager.getSecureData(member.getPassword()));
+		memberDAO.update(member);
+	}
+
 }

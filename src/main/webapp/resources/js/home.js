@@ -198,7 +198,7 @@ function onlyAlphabet(obj) {
 
 function onlyHangul(obj) {
 	obj.value = obj.value.replace(/[a-z0-9]|[\[\]{}()<>?|`~!@#$%^&*-_+=,.;:\"'\\]/g, "");
-};
+}
 
 $(function(){
 	$("#regist_button").on("click", function() {
