@@ -5,30 +5,48 @@ h2 {
 }
 
 #information {
-	margin: 0 auto;
 	text-align: center;
+}
+
+#information input {
+	display: block;
 	font-size: 18px;
-}
-
-#information td {
-	padding: 20px 40px;
-}
-
-#information tr td:nth-child(1) {
-	border-bottom: 1px solid #fbbd0dbf;
-}
-
-#information tr:last-child td {
+	padding: 15px 60px;
+    color: #faf5e6;
+	background-color: transparent;
+	text-align: center;
 	border: none;
-	font-size: 16px;
+	border-bottom: 1px solid #fbbd0dbf;
+	outline: none;
+	margin: 0 auto;
+}
+
+#information input:focus {
+	border-color: #fbbd0d;
+}
+
+#information p {
+	display: inline-block;
+	margin: 0 auto;
+}
+	
+#information #information_guide {
+	font-size: 18px;
+	border-top: 1px solid #fbbd0d;
+	padding: 10px 0;
+}
+	
+#information #start_day {
+	font-size: 14px;
+	padding: 15px 0;
 	opacity: 0.8;
 }
-
+	
 #information button {
-	padding: 5px 10px;
+	padding: 10px 15px;
 	background-color: transparent;
     color: #faf5e6;
-    font-size: 14px;
+    font-size: 18px;
 	border: 1px solid #faf5e64d;
 }
 
@@ -37,3 +55,9 @@ h2 {
     color: #fbbd0d;
 	border: 1px solid #fbbd0d;
 }
+
+	
+
+
+
+

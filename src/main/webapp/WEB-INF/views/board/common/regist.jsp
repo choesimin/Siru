@@ -14,7 +14,7 @@
     <div id="wrapper">
         <form id="write_form">
             <div id="mode">
-                <div id="poem_mode">作</div>
+                <div id="poem_mode">작품</div>
                 <div id="story_mode">이야기</div>
             </div>
             <button id="regist_button" type="button">글 올리기</button> 
