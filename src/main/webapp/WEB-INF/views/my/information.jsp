@@ -28,7 +28,7 @@
 
 			<p id="start_day"><%=member_information.getDate() %> 부터 시작하셨습니다.</p>
 
-			<div style="text-align: center;">	
+			<div id="button_box">	
 				<button onclick="getInformation()">원래대로</button>
 				<button onclick="changeInformation()">변경</button>
 			</div>

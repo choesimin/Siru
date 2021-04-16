@@ -96,6 +96,41 @@ public class MemberServiceImpl implements MemberService {
 		
 		return responseData;
 	}
+	
+	@Override
+	public Member get(int member_id) {
+		return memberDAO.select(member_id);
+	}
+	
+	@Override
+	public ResponseData changeInformation(Member member) {
+		Member memberById = memberDAO.selectById(member.getId());
+		Member memberByNickname = memberDAO.selectByNickname(member.getNickname());
+
+		ResponseData responseData = new ResponseData();
+		SecureManager secureManager = new SecureManager();
+
+		String message = "";
+		int code = 0;
+		
+		if ((memberByNickname != null) && !(memberByNickname.getNickname().equals(member.getNickname()))) {
+			message = "닉네임(<span class=\"color_yellow\">" + memberByNickname.getNickname() + "</span>)이 중복됩니다.";
+			code = 1;
+		} else if ((memberById != null) && !(memberById.getId().equals(member.getId()))) {
+			message = "아이디(<span class=\"color_yellow\">" + memberById.getId() + "</span>)가 중복됩니다.";
+			code = 2;
+		} else {
+			member.setPassword(secureManager.getSecureData(member.getPassword()));
+			memberDAO.update(member);
+			message = "정보가 변경되었습니다.";
+			code = 10;
+		}
+		
+		responseData.setMessage(message);
+		responseData.setCode(code);
+		
+		return responseData;
+	}
 
 	@Override
 	public ResponseData changePassword(Member member) {
@@ -129,17 +164,5 @@ public class MemberServiceImpl implements MemberService {
 		return responseData;
 	}
 
-	@Override
-	public Member get(int member_id) {
-		return memberDAO.select(member_id);
-	}
-
-	@Override
-	public void change(Member member) {
-		SecureManager secureManager = new SecureManager();
-
-		member.setPassword(secureManager.getSecureData(member.getPassword()));
-		memberDAO.update(member);
-	}
 
 }

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.simin.siru.model.domain.Member;
+import com.simin.siru.model.domain.ResponseData;
 import com.simin.siru.model.service.MemberService;
 
 @RestController
@@ -34,8 +35,18 @@ public class MyController {
 	}
 	
 	@RequestMapping(value = "/my/information/change", method = RequestMethod.POST, produces = "application/text;charset=utf8")
-	public void changeInformation(Member member) {
-		memberService.change(member);
+	public String changeInformation(Member member) {
+		ResponseData responseData = memberService.changeInformation(member);
+		
+		ObjectMapper mapper = new ObjectMapper();
+		String jsonString = "";
+		try {
+			jsonString = mapper.writeValueAsString(responseData);
+		} catch (JsonProcessingException e) {
+			e.printStackTrace();
+		}
+		
+		return jsonString;
 	}
 
 }

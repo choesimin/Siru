@@ -34,10 +34,10 @@ function changeInformation() {
 		guide.html("아이디를 입력해주세요.");
 		id.focus();
 	} else if (password.val() == "") {
-		guide.html("새로운 비밀번호를 입력해주세요.");
+		guide.html("비밀번호를 입력해주세요.");
 		password.focus();
 	} else if (repassword.val() == "") {
-		guide.html("새로운 비밀번호를 재입력해주세요.");
+		guide.html("비밀번호를 재입력해주세요.");
 		repassword.focus();
 	} else if (nickname.val() == "") {
 		guide.html("닉네임을 입력해주세요.");
@@ -65,10 +65,13 @@ function changeInformation() {
 				nickname : nickname.val(),
 				email : email.val()
 			},
-			success : function() {
-				getInformation();
+			success : function(responseData) {
+				var responseJson = JSON.parse(responseData);
+				guide.html(responseJson.message);
 				
-				guide.html("내 정보가 변경되었습니다.");
+				if (responseJson.code == 10) {
+					getInformation();
+				}
 			}
 		});
 	}
