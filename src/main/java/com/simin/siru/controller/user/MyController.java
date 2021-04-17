@@ -66,8 +66,9 @@ public class MyController {
 	}
 	
 	@RequestMapping(value = "/my/information", method = RequestMethod.GET)
-	public ModelAndView getInformation(HttpSession session) {
+	public ModelAndView getInformation(HttpServletRequest request) {
 		ModelAndView mav = new ModelAndView();
+		HttpSession session = request.getSession();
 		
 		Member member = (Member)session.getAttribute("member");
 		
@@ -77,5 +78,4 @@ public class MyController {
 		return mav;
 	}
 	
-
 }

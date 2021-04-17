@@ -149,5 +149,5 @@ public class BoardController {
 		
 		return "redirect:/user/board/story/list";
 	}
-
+	
 }
