@@ -80,27 +80,26 @@ public class BoardController {
 	
 
 	@RequestMapping(value = "/board/regist/form", method = RequestMethod.GET)
-	public String getRegistForm() {
+	public String getRegistForm(HttpServletRequest request) {
 		return "board/common/regist";
 	}
-	
-	
 	@RequestMapping(value = "/board/poem/regist", method = RequestMethod.POST)
-	public String registPoem(Poem poem) {
+	public String registPoem(HttpServletRequest request, Poem poem) {
 		poemService.regist(poem);
 		
 		return "redirect:/user/board/poem/list";
 	}
 	@RequestMapping(value = "/board/story/regist", method = RequestMethod.POST)
-	public String registStory(Story story) {
+	public String registStory(HttpServletRequest request, Story story) {
 		storyService.regist(story);
 		
 		return "redirect:/user/board/story/list";
 	}
 	
 	
+	
 	@RequestMapping(value = "/board/poem/modify/form", method = RequestMethod.GET)
-	public ModelAndView getPoemModifyForm(int poem_id) {
+	public ModelAndView getPoemModifyForm(HttpServletRequest request, int poem_id) {
 		ModelAndView mav = new ModelAndView();
 		
 		Poem poem = poemService.select(poem_id);
@@ -111,7 +110,7 @@ public class BoardController {
 		return mav;
 	}
 	@RequestMapping(value = "/board/story/modify/form", method = RequestMethod.GET)
-	public ModelAndView getStoryModifyForm(int story_id) {
+	public ModelAndView getStoryModifyForm(HttpServletRequest request, int story_id) {
 		ModelAndView mav = new ModelAndView();
 		
 		Story story = storyService.select(story_id);
@@ -121,30 +120,29 @@ public class BoardController {
 		
 		return mav;
 	}
-	
-	
 	@RequestMapping(value = "/board/poem/modify", method = RequestMethod.POST)
-	public String modifyPoem(Poem poem) {
+	public String modifyPoem(HttpServletRequest request, Poem poem) {
 		poemService.modify(poem);
 		
 		return "redirect:/user/board/poem/detail?poem_id=" + poem.getPoem_id();
 	}
 	@RequestMapping(value = "/board/story/modify", method = RequestMethod.POST)
-	public String modifyStory(Story story) {
+	public String modifyStory(HttpServletRequest request, Story story) {
 		storyService.modify(story);
 		
 		return "redirect:/user/board/story/detail?story_id=" + story.getStory_id();
 	}
 	
+
 	
 	@RequestMapping(value = "/board/poem/delete", method = RequestMethod.GET)
-	public String deletePoem(int poem_id) {
+	public String deletePoem(HttpServletRequest request, int poem_id) {
 		poemService.delete(poem_id);
 		
 		return "redirect:/user/board/poem/list";
 	}
 	@RequestMapping(value = "/board/story/delete", method = RequestMethod.GET)
-	public String deleteStory(int story_id) {
+	public String deleteStory(HttpServletRequest request, int story_id) {
 		storyService.delete(story_id);
 		
 		return "redirect:/user/board/story/list";

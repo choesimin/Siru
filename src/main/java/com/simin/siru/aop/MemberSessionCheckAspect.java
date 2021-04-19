@@ -10,13 +10,11 @@ import com.simin.siru.exception.LoginRequiredException;
 public class MemberSessionCheckAspect {
 
 	public Object memberSessionCheck(ProceedingJoinPoint joinPoint) throws Throwable {
+		/*
 		Object target = joinPoint.getTarget();
 		String methodName = joinPoint.getSignature().getName();
+		*/
 		Object[] args = joinPoint.getArgs();
-		
-		System.out.println("memberSessionCheck 시작");
-		System.out.println("Target : " + target);
-		System.out.println("MethodName : " + methodName);
 		
 		HttpServletRequest request = null;
 
