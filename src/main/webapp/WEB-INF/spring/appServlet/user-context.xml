@@ -14,11 +14,6 @@
 	<context:component-scan base-package="com.simin.siru.controller.user"/>
 	
 	
-	
-	<beans:bean id="globalExceptionHandler" class="com.simin.siru.aop.GlobalExceptionHandler"/>
-	
-	<beans:bean id="memberSessionCheckAspect" class="com.simin.siru.aop.MemberSessionCheckAspect"/>
-	
 	<aop:config>
 		<aop:aspect id="memberSessionCheckAspect" ref="memberSessionCheckAspect">
 			<aop:pointcut expression="

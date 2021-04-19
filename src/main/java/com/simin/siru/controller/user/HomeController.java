@@ -26,10 +26,10 @@ public class HomeController {
 	public ModelAndView home() {
 		ModelAndView mav = new ModelAndView();
 		
-		List<Poem> poem_list = poemService.selectAll();
-		List<Story> story_list = storyService.selectAll();
-		Poem[] poem_best_five = poemService.selectBestFive();
-		Story[] story_best_five = storyService.selectBestFive();
+		List<Poem> poem_list = poemService.getList();
+		List<Story> story_list = storyService.getList();
+		Poem[] poem_best_five = poemService.getBestFive();
+		Story[] story_best_five = storyService.getBestFive();
 		
 		mav.setViewName("home");
 

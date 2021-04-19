@@ -103,6 +103,11 @@ public class MemberServiceImpl implements MemberService {
 	}
 	
 	@Override
+	public List<Member> getList() {
+		return memberDAO.selectAll();
+	}
+	
+	@Override
 	public ResponseData changeInformation(Member member) {
 		Member memberById = memberDAO.selectById(member.getId());
 		Member memberByNickname = memberDAO.selectByNickname(member.getNickname());

@@ -13,6 +13,7 @@
 	
 	<select id="selectAll" resultType="Member">
 		<include refid="selectCommon"/>
+		order by date desc
 	</select>
 	
 	<select id="select" parameterType="int" resultType="Member">

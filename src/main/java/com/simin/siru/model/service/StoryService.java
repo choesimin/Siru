@@ -8,10 +8,10 @@ import com.simin.siru.model.domain.Story;
 public interface StoryService {
 
 	public void regist(Story story);
-	public List<Story> selectAll();
-	public Story select(int story_id);
-	public List<Story> selectByMember(int member_id);
-	public Story[] selectBestFive();
+	public List<Story> getList();
+	public Story get(int story_id);
+	public List<Story> getByMember(int member_id);
+	public Story[] getBestFive();
 	public void modify(Story story);
 	public void delete(int story_id);
 	public void like(Like like);

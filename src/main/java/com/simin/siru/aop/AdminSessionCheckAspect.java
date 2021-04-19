@@ -5,15 +5,12 @@ import javax.servlet.http.HttpSession;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 
-import com.simin.siru.exception.LoginRequiredException;
+import com.simin.siru.exception.AdminRequiredException;
+import com.simin.siru.model.domain.Member;
 
-public class MemberSessionCheckAspect {
+public class AdminSessionCheckAspect {
 
-	public Object memberSessionCheck(ProceedingJoinPoint joinPoint) throws Throwable {
-		/*
-		Object target = joinPoint.getTarget();
-		String methodName = joinPoint.getSignature().getName();
-		*/
+	public Object adminSessionCheck(ProceedingJoinPoint joinPoint) throws Throwable {
 
 		Object[] args = joinPoint.getArgs();
 		
@@ -27,10 +24,11 @@ public class MemberSessionCheckAspect {
 		
 		HttpSession session = null;
 		session = request.getSession();
+		Member member = (Member)session.getAttribute("member");
 		Object result = null;
 		
-		if (session.getAttribute("member") == null) {
-			throw new LoginRequiredException();
+		if (!member.getId().equals("administrator")) {
+			throw new AdminRequiredException();
 		} else {
 			result = joinPoint.proceed();
 		}

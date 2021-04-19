@@ -25,22 +25,22 @@ public class StoryServiceImpl implements StoryService {
 	}
 
 	@Override
-	public List<Story> selectAll() {
+	public List<Story> getList() {
 		return storyDAO.selectAll();
 	}
 
 	@Override
-	public Story select(int story_id) {
+	public Story get(int story_id) {
 		return storyDAO.select(story_id);
 	}
 
 	@Override
-	public List<Story> selectByMember(int member_id) {
+	public List<Story> getByMember(int member_id) {
 		return storyDAO.selectByMemberIdOrderByDate(member_id);
 	}
 
 	@Override
-	public Story[] selectBestFive() {
+	public Story[] getBestFive() {
 		List<Like> like_list = likeDAO.selectStoryOrderByCount();
 
 		if (like_list.size() >= 5) {

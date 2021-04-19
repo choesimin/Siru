@@ -20,15 +20,15 @@ import com.simin.siru.model.service.StoryService;
 public class BoardController {
 	
 	@Autowired
-	StoryService storyService;
+	private StoryService storyService;
 	
 	@Autowired
-	PoemService poemService;
+	private PoemService poemService;
 	
 	@RequestMapping(value = "/board/poem/list", method = RequestMethod.GET)
 	public ModelAndView getPoemBoard(HttpServletRequest request) {
 		ModelAndView mav = new ModelAndView();
-		List<Poem> poem_list = poemService.selectAll();
+		List<Poem> poem_list = poemService.getList();
 		Pager pager = new Pager();
 
 		pager.init(request, poem_list.size());
@@ -42,7 +42,7 @@ public class BoardController {
 	@RequestMapping(value = "/board/story/list", method = RequestMethod.GET)
 	public ModelAndView getStoryBoard(HttpServletRequest request) {
 		ModelAndView mav = new ModelAndView();
-		List<Story> story_list = storyService.selectAll();
+		List<Story> story_list = storyService.getList();
 		Pager pager = new Pager();
 
 		pager.init(request, story_list.size());
@@ -59,7 +59,7 @@ public class BoardController {
 	public ModelAndView getPoemDetail(int poem_id) {
 		ModelAndView mav = new ModelAndView();
 
-		Poem poem = poemService.select(poem_id);
+		Poem poem = poemService.get(poem_id);
 
 		mav.addObject("poem", poem);
 		mav.setViewName("board/poem/detail");
@@ -70,7 +70,7 @@ public class BoardController {
 	public ModelAndView getStoryDetail(int story_id) {
 		ModelAndView mav = new ModelAndView();
 
-		Story story = storyService.select(story_id);
+		Story story = storyService.get(story_id);
 
 		mav.addObject("story", story);
 		mav.setViewName("board/story/detail");
@@ -102,7 +102,7 @@ public class BoardController {
 	public ModelAndView getPoemModifyForm(HttpServletRequest request, int poem_id) {
 		ModelAndView mav = new ModelAndView();
 		
-		Poem poem = poemService.select(poem_id);
+		Poem poem = poemService.get(poem_id);
 		
 		mav.addObject("poem", poem);
 		mav.setViewName("board/poem/modify");
@@ -113,7 +113,7 @@ public class BoardController {
 	public ModelAndView getStoryModifyForm(HttpServletRequest request, int story_id) {
 		ModelAndView mav = new ModelAndView();
 		
-		Story story = storyService.select(story_id);
+		Story story = storyService.get(story_id);
 		
 		mav.addObject("story", story);
 		mav.setViewName("board/story/modify");

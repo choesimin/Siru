@@ -7,13 +7,9 @@ import org.aspectj.lang.ProceedingJoinPoint;
 
 import com.simin.siru.exception.LoginRequiredException;
 
-public class MemberSessionCheckAspect {
+public class SameMemberCheckAspect {
 
-	public Object memberSessionCheck(ProceedingJoinPoint joinPoint) throws Throwable {
-		/*
-		Object target = joinPoint.getTarget();
-		String methodName = joinPoint.getSignature().getName();
-		*/
+	public Object sameMemberCheck(ProceedingJoinPoint joinPoint) throws Throwable {
 
 		Object[] args = joinPoint.getArgs();
 		
@@ -25,6 +21,12 @@ public class MemberSessionCheckAspect {
 			}
 		}
 		
+		/*
+		
+		여기에 글의 작성자를 알아올 수 있는 과정 추가
+		
+		*/
+		
 		HttpSession session = null;
 		session = request.getSession();
 		Object result = null;
@@ -34,6 +36,12 @@ public class MemberSessionCheckAspect {
 		} else {
 			result = joinPoint.proceed();
 		}
+		
+		/*
+		
+		여기에서 현재 session의 사람과 글을 등록한 사람이 같은지 판단 
+		
+		*/
 		
 		return result;
 	}

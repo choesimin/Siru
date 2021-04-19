@@ -14,7 +14,7 @@ import com.simin.siru.model.service.CommentService;
 public class CommentController {
 	
 	@Autowired
-	CommentService commentService;
+	private CommentService commentService;
 	
 	@RequestMapping(value = "/comment/get", method = RequestMethod.GET, produces = "application/text;charset=utf8")
 	public String get(int comment_id) {

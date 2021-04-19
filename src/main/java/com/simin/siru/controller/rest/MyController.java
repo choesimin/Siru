@@ -15,7 +15,7 @@ import com.simin.siru.model.service.MemberService;
 public class MyController {
 	
 	@Autowired
-	MemberService memberService;
+	private MemberService memberService;
 	
 	@RequestMapping(value = "/my/information/get", method = RequestMethod.GET, produces = "application/text;charset=utf8")
 	public String getInformation(int member_id) {

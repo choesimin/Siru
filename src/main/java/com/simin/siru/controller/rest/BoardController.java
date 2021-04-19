@@ -13,10 +13,10 @@ import com.simin.siru.model.service.StoryService;
 public class BoardController {
 	
 	@Autowired
-	StoryService storyService;
+	private StoryService storyService;
 
 	@Autowired
-	PoemService poemService;
+	private PoemService poemService;
 	
 
 	@RequestMapping(value = "/poem/like", method = RequestMethod.POST)

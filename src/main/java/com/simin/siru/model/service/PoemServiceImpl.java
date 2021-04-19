@@ -25,22 +25,22 @@ public class PoemServiceImpl implements PoemService {
 	}
 
 	@Override
-	public List<Poem> selectAll() {
+	public List<Poem> getList() {
 		return poemDAO.selectAll();
 	}
 
 	@Override
-	public Poem select(int poem_id) {
+	public Poem get(int poem_id) {
 		return poemDAO.select(poem_id);
 	}
 
 	@Override
-	public List<Poem> selectByMember(int member_id) {
+	public List<Poem> getByMember(int member_id) {
 		return poemDAO.selectByMemberIdOrderByDate(member_id);
 	}
 
 	@Override
-	public Poem[] selectBestFive() {
+	public Poem[] getBestFive() {
 		List<Like> like_list = likeDAO.selectPoemOrderByCount();
 
 		if (like_list.size() >= 5) {
