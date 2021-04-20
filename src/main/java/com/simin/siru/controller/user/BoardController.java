@@ -78,6 +78,10 @@ public class BoardController {
 		return mav;
 	}
 	
+	
+	
+	
+	
 
 	@RequestMapping(value = "/board/regist/form", method = RequestMethod.GET)
 	public String getRegistForm(HttpServletRequest request) {

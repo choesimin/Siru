@@ -4,6 +4,7 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
 import com.simin.siru.exception.AdminRequiredException;
+import com.simin.siru.exception.MemberPermissionRequiredException;
 import com.simin.siru.exception.LoginRequiredException;
 
 @ControllerAdvice
@@ -16,7 +17,12 @@ public class GlobalExceptionHandler {
 
 	@ExceptionHandler(AdminRequiredException.class)
 	public String handlerException(AdminRequiredException e) {
-		return "redirect:/user/member/logout";
+		return "redirect:/user/home#start";
+	}
+
+	@ExceptionHandler(MemberPermissionRequiredException.class)
+	public String handlerException(MemberPermissionRequiredException e) {
+		return "redirect:/user/home#start";
 	}
 
 }
