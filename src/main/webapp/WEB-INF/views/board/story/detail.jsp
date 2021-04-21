@@ -32,7 +32,9 @@
 			<button type="button" id="like_button"<%if (member != null) { %> onclick="likePost()"<%} %>>공감 <span id="like_count"></span></button>
         </div>
 
-		<input type="hidden" id="story_id" value="<%=story.getStory_id() %>">
+		<form id="story_form">
+			<input type="hidden" name="story_id" value="<%=story.getStory_id() %>">
+		</form>
 
         <div id="comment_area">
         	<%if (member != null) { %>

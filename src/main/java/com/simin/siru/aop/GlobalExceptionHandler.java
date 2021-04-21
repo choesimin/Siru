@@ -20,9 +20,5 @@ public class GlobalExceptionHandler {
 		return "redirect:/user/home#start";
 	}
 
-	@ExceptionHandler(MemberPermissionRequiredException.class)
-	public String handlerException(MemberPermissionRequiredException e) {
-		return "redirect:/user/home#start";
-	}
 
 }

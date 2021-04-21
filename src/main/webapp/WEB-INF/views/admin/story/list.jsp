@@ -15,6 +15,7 @@
 </head>
 <body>
 	<%@ include file="../../common/nav_bar.jsp"%>
+	<%@ include file="../../common/write_button.jsp"%>
     <div id="wrapper">
         <h2 id="board_title">이야기 관리</h2>
         <div id="board">
@@ -29,7 +30,7 @@
         		currentPosition++;
         		number--;
         	%>
-            <a class="post" href="/user/board/story/modify/form?story_id=<%=story.getStory_id() %>">
+            <a class="post" href="/admin/story/modify/form?story_id=<%=story.getStory_id() %>">
             	<span class="title"><%=story.getTitle() %></span>
             	<span class="date"><%=story.getDate() %></span>
             </a>

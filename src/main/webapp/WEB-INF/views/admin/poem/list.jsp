@@ -30,7 +30,7 @@
         		currentPosition++;
         		number--;
         	%>
-            <a class="post" href="/user/board/poem/modify/form?poem_id=<%=poem.getPoem_id() %>">
+            <a class="post" href="/admin/poem/modify/form?poem_id=<%=poem.getPoem_id() %>">
             	<span class="title"><%=poem.getTitle() %></span>
             	<span class="date"><%=poem.getDate() %></span>
             </a>

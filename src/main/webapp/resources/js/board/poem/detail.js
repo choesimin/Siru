@@ -1,20 +1,24 @@
 function modifyPoem() {
-	var poem_id = $("#poem_id").val();
-
-	location.href = "/user/board/poem/modify/form?poem_id=" + poem_id;
+	$("#poem_form").attr({
+		action : "/user/board/poem/modify/form",
+		method : "post"
+	});
+	$("#poem_form").submit();		
 }
 
 function deletePoem() {
 	if (confirm("글을 지우시겠습니까?")) {
-		var poem_id = $("#poem_id").val();
-
-		location.href = "/user/board/poem/delete?poem_id=" + poem_id;
+		$("#poem_form").attr({
+			action : "/user/board/poem/delete",
+			method : "post"
+		});
+		$("#poem_form").submit();	
 	}
 }
 
 function likePost() {
 	var member_id = $("#member_id");
-	var poem_id = $("#poem_id");
+	var poem_id = $("input[name=poem_id]");
 
 	if (checkMemberLike() == true) {
 		$.ajax({
@@ -44,7 +48,7 @@ function likePost() {
 }
 
 function getLike() {
-	var poem_id = $("#poem_id").val();
+	var poem_id = $("input[name=poem_id]").val();
 	var like_count = $("#like_count");
 	
 	$.ajax({
@@ -62,7 +66,7 @@ function checkMemberLike() {
 	var flag = false;
 
 	var member_id = $("#member_id");
-	var poem_id = $("#poem_id");
+	var poem_id = $("input[name=poem_id]");
 	
 	$.ajax({
 		url : "/rest/poem/like/check",
@@ -92,152 +96,6 @@ function chooseLikeButtonColor() {
 	}
 }
 
-
-
-
-
-
-function showCommentRegistButton() {
-	
-	$("#comment_regist_button").css("display", "block");
-}
-
-function hideCommentRegistButton() {
-	$("#comment_regist_button").css("display", "none");
-}
-
-function registComment() {
-	var member_id = $("#member_id");
-	var poem_id = $("#poem_id");
-	var comment = $("#comment_regist_area");
-	
-	if (comment.val() != "") {
-		$.ajax({
-			url : "/rest/comment/regist",
-			data : {
-				member_id : member_id.val(),
-				poem_id : poem_id.val(),
-				content : comment.val()
-			},
-			method : "post",
-			success : function() {
-				comment.val("");
-				loadCommentList();
-				hideCommentRegistButton();
-			}
-		});
-	} else {
-		comment.focus();
-	}
-}
-
-function deleteComment(obj) {
-	if (confirm("댓글을 지우시겠습니까?")) {
-		var comment_id = obj.value;
-		
-		$.ajax({
-			url : "/rest/comment/delete?comment_id=" + comment_id,
-			method : "get",
-			success : function() {
-				loadCommentList();
-			}
-		});
-	}
-}
-
-function modifyComment(obj) {
-	var comment_id = obj.value;
-	var content = obj.previousSibling;
-	
-	if (content.value != "") {
-		$.ajax({
-			url : "/rest/comment/modify",
-			method : "post",
-			data : {
-				comment_id : comment_id,
-				content : content.value
-			},
-			success : function() {
-				loadCommentList();
-			}
-		});
-	} else {
-		content.focus();
-	}
-}
-
-function getComment(comment_id) {
-	var commentJson = {};
-
-	$.ajax({
-		url : "/rest/comment/get?comment_id=" + comment_id,
-		method : "get",
-		async: false,
-		success : function(responseData) {
-			commentJson = JSON.parse(responseData);
-		}
-	});
-
-	return commentJson;
-}
-
-
-function loadCommentList() {
-	var comment_list = $("#comment_list");
-	var poem_id = $("#poem_id");
-	var member_id = $("#member_id");
-	
-	$.ajax({
-		url : "/rest/comment/list",
-		data : {
-			poem_id : poem_id.val()
-		},
-		method : "get",
-		success : function(responseData) {
-			var responseJson = JSON.parse(responseData);
-			var tag = "";
-
-			for (var i = 0; i < responseJson.length; i++) {
-				tag += "<div class=\"comment\">";
-				
-				tag += "<div style=\"width: 100%\" class=\"clear_fix\">";
-				if (responseJson[i].member.member_id == member_id.val()) {
-					tag += "<button type=\"button\" value=\"" + responseJson[i].comment_id + "\" onclick=\"deleteComment(this)\" class=\"comment_delete_button\">×</button>";
-					tag += "<button type=\"button\" value=\"" + responseJson[i].comment_id + "\" onclick=\"showCommentModifingArea(this)\" class=\"comment_modify_button\">±</button>";
-				}
-				tag += "<h3>" + responseJson[i].member.nickname + "</h3>";
-				tag += "</div>";
-
-				tag += "<p class=\"comment_date\">" + responseJson[i].date + "</p>";
-
-				tag += "<div class=\"comment_content_wrapper\">"
-				tag += "<pre class=\"comment_content\">" + responseJson[i].content + "</pre>";
-				tag += "</div>"
-
-				tag += "</div>";
-				
-			}
-			
-			comment_list.html(tag);
-		}
-	});
-}
-
-function showCommentModifingArea(obj) {
-	var comment_id = obj.value;
-	var comment = getComment(comment_id);
-	var comment_content_wrapper = obj.parentElement.parentElement.querySelector(".comment_content_wrapper");
-	
-	var tag = "";
-	tag += "<div class=\"comment_modifing\">";
-	tag += "<textarea class=\"comment_modifing_area\">" + comment.content + "</textarea>";
-	tag += "<button onclick=\"modifyComment(this)\" value=\"" + comment.comment_id + "\" class=\"comment_modifing_button\">수정</button>";
-	tag += "<button onclick=\"loadCommentList()\" class=\"comment_modifing_cancel_button\">취소</button>";
-	tag += "</div>";
-	
-	comment_content_wrapper.innerHTML = tag;
-	comment_content_wrapper.querySelector("textarea").focus();
-}
 
 
 

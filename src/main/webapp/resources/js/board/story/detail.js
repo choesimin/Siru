@@ -1,20 +1,24 @@
 function modifyStory() {
-	var story_id = $("#story_id").val();
-
-	location.href = "/user/board/story/modify/form?story_id=" + story_id;
+	$("#story_form").attr({
+		action : "/user/board/story/modify/form",
+		method : "post"
+	});
+	$("#story_form").submit();		
 }
 
 function deleteStory() {
 	if (confirm("글을 지우시겠습니까?")) {
-		var story_id = $("#story_id").val();
-
-		location.href = "/user/board/story/delete?story_id=" + story_id;
+		$("#story_form").attr({
+			action : "/user/board/story/delete",
+			method : "post"
+		});
+		$("#story_form").submit();	
 	}
 }
 
 function likePost() {
 	var member_id = $("#member_id");
-	var story_id = $("#story_id");
+	var story_id = $("input[name=story_id]");
 
 	if (checkMemberLike() == true) {
 		$.ajax({
@@ -44,7 +48,7 @@ function likePost() {
 }
 
 function getLike() {
-	var story_id = $("#story_id").val();
+	var story_id = $("input[name=story_id]").val();
 	var like_count = $("#like_count");
 	
 	$.ajax({
@@ -62,7 +66,7 @@ function checkMemberLike() {
 	var flag = false;
 
 	var member_id = $("#member_id");
-	var story_id = $("#story_id");
+	var story_id = $("input[name=story_id]");
 	
 	$.ajax({
 		url : "/rest/story/like/check",
@@ -96,7 +100,6 @@ function chooseLikeButtonColor() {
 
 
 
-
 function showCommentRegistButton() {
 	
 	$("#comment_regist_button").css("display", "block");
@@ -108,7 +111,7 @@ function hideCommentRegistButton() {
 
 function registComment() {
 	var member_id = $("#member_id");
-	var story_id = $("#story_id");
+	var story_id = $("input[name=story_id]");
 	var comment = $("#comment_regist_area");
 	
 	if (comment.val() != "") {
@@ -184,7 +187,7 @@ function getComment(comment_id) {
 
 function loadCommentList() {
 	var comment_list = $("#comment_list");
-	var story_id = $("#story_id");
+	var story_id = $("input[name=story_id]");
 	var member_id = $("#member_id");
 	
 	$.ajax({

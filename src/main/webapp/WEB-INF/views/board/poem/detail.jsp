@@ -32,7 +32,9 @@
 			<button type="button" id="like_button"<%if (member != null) { %> onclick="likePost()"<%} %>>공감 <span id="like_count"></span></button>
         </div>
 
-		<input type="hidden" id="poem_id" value="<%=poem.getPoem_id() %>">
+		<form id="poem_form">
+			<input type="hidden" name="poem_id" value="<%=poem.getPoem_id() %>">
+		</form>
 
 		<%if (member != null) { %>
 		<input type="hidden" id="member_id" value="<%=member.getMember_id() %>">

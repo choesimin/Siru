@@ -81,8 +81,6 @@ public class BoardController {
 	
 	
 	
-	
-
 	@RequestMapping(value = "/board/regist/form", method = RequestMethod.GET)
 	public String getRegistForm(HttpServletRequest request) {
 		return "board/common/regist";
@@ -102,24 +100,24 @@ public class BoardController {
 	
 	
 	
-	@RequestMapping(value = "/board/poem/modify/form", method = RequestMethod.GET)
-	public ModelAndView getPoemModifyForm(HttpServletRequest request, int poem_id) {
+	@RequestMapping(value = "/board/poem/modify/form", method = RequestMethod.POST)
+	public ModelAndView getPoemModifyForm(HttpServletRequest request, Poem poem) {
 		ModelAndView mav = new ModelAndView();
 		
-		Poem poem = poemService.get(poem_id);
+		Poem poem_result = poemService.get(poem.getPoem_id());
 		
-		mav.addObject("poem", poem);
+		mav.addObject("poem", poem_result);
 		mav.setViewName("board/poem/modify");
 		
 		return mav;
 	}
-	@RequestMapping(value = "/board/story/modify/form", method = RequestMethod.GET)
-	public ModelAndView getStoryModifyForm(HttpServletRequest request, int story_id) {
+	@RequestMapping(value = "/board/story/modify/form", method = RequestMethod.POST)
+	public ModelAndView getStoryModifyForm(HttpServletRequest request, Story story) {
 		ModelAndView mav = new ModelAndView();
 		
-		Story story = storyService.get(story_id);
+		Story story_result = storyService.get(story.getStory_id());
 		
-		mav.addObject("story", story);
+		mav.addObject("story", story_result);
 		mav.setViewName("board/story/modify");
 		
 		return mav;
@@ -139,15 +137,15 @@ public class BoardController {
 	
 
 	
-	@RequestMapping(value = "/board/poem/delete", method = RequestMethod.GET)
-	public String deletePoem(HttpServletRequest request, int poem_id) {
-		poemService.delete(poem_id);
+	@RequestMapping(value = "/board/poem/delete", method = RequestMethod.POST)
+	public String deletePoem(HttpServletRequest request, Poem poem) {
+		poemService.delete(poem.getPoem_id());
 		
 		return "redirect:/user/board/poem/list";
 	}
-	@RequestMapping(value = "/board/story/delete", method = RequestMethod.GET)
-	public String deleteStory(HttpServletRequest request, int story_id) {
-		storyService.delete(story_id);
+	@RequestMapping(value = "/board/story/delete", method = RequestMethod.POST)
+	public String deleteStory(HttpServletRequest request, Story story) {
+		storyService.delete(story.getStory_id());
 		
 		return "redirect:/user/board/story/list";
 	}
