@@ -30,6 +30,7 @@ public class HomeController {
 		List<Story> story_list = storyService.getList();
 		Poem[] poem_best_five = poemService.getBestFive();
 		Story[] story_best_five = storyService.getBestFive();
+		Poem poem_main = poemService.getMain();
 		
 		mav.setViewName("home");
 

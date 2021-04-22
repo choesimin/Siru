@@ -19,12 +19,12 @@
 	<aop:config>
 		<aop:pointcut expression="
 			execution(public * com.simin.siru.controller.admin.AdminController..*(..))
-		" id="adminSessionCheckPointcut"/>
+		" id="adminCheckPointcut"/>
 		<aop:aspect id="memberSessionCheckAspect" ref="memberSessionCheckAspect">
-			<aop:around method="memberSessionCheck" pointcut-ref="adminSessionCheckPointcut"/>
+			<aop:around method="memberSessionCheck" pointcut-ref="adminCheckPointcut"/>
 		</aop:aspect>
 		<aop:aspect id="adminSessionCheckAspect" ref="adminSessionCheckAspect">
-			<aop:around method="adminSessionCheck" pointcut-ref="adminSessionCheckPointcut"/>
+			<aop:around method="adminSessionCheck" pointcut-ref="adminCheckPointcut"/>
 		</aop:aspect>
 	</aop:config>
 	

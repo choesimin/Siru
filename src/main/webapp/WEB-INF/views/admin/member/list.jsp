@@ -29,7 +29,7 @@
         		currentPosition++;
         		number--;
         	%>
-            <a class="post" href="/user/my/information?member_id=<%=member.getMember_id() %>">
+            <a class="post" href="/admin/member/information?member_id=<%=member.getMember_id() %>">
             	<span class="title"><%=member.getNickname() %></span>
             	<span class="date"><%=member.getDate() %></span>
             </a>

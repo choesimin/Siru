@@ -72,5 +72,36 @@ public class AdminController {
 		
 		return mav;
 	}
+	
+	@RequestMapping(value = "/poem/modify/form", method = RequestMethod.GET)
+	public ModelAndView getPoemModifyForm(HttpServletRequest request, int poem_id) {
+		ModelAndView mav = new ModelAndView();
+		Poem poem = poemService.get(poem_id);
+		
+		mav.setViewName("admin/poem/modify");
+		mav.addObject("poem", poem);
+		
+		return mav;
+	}
+	@RequestMapping(value = "/story/modify/form", method = RequestMethod.GET)
+	public ModelAndView getStoryModifyForm(HttpServletRequest request, int story_id) {
+		ModelAndView mav = new ModelAndView();
+		Story story = storyService.get(story_id);
+		
+		mav.setViewName("admin/story/modify");
+		mav.addObject("story", story);
+		
+		return mav;
+	}
+	@RequestMapping(value = "/member/information", method = RequestMethod.GET)
+	public ModelAndView getMemberModifyForm(HttpServletRequest request, int member_id) {
+		ModelAndView mav = new ModelAndView();
+		Member member = memberService.get(member_id);
+		
+		mav.setViewName("admin/member/information");
+		mav.addObject("member", member);
+		
+		return mav;
+	}
 
 }

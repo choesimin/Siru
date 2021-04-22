@@ -9,6 +9,7 @@
 	List<Story> story_list = (List<Story>)request.getAttribute("story_list");
 	Poem[] poem_best_five = (Poem[])request.getAttribute("poem_best_five");
 	Story[] story_best_five = (Story[])request.getAttribute("story_best_five");
+	Poem poem_main = (Poem)request.getAttribute("poem_main");
 %>
 <!DOCTYPE html>
 <html>
