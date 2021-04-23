@@ -9,10 +9,6 @@
 	clear: both;
 }
 
-#main #welcome {
-	margin-top: 100px;
-}
-
 #main #welcome h2 {
 	font-weight: bold;
 	font-size: 60px;
@@ -88,6 +84,7 @@
 
 #best #best_poem, #best_story { 
 	width: 40%;
+	text-align: center;
 }
 
 #best #best_poem {
@@ -214,6 +211,7 @@
 	display: inline-block;
 	border: 1px solid #fbbd0dbf;
 	padding: 10px 20px;
+	margin-top: 5px;
 }
 
 #my a:hover {
@@ -222,7 +220,34 @@
 	color: #fbbd0d;
 }
 
+@media screen and (max-width: 600px) {
+	#main #banner {
+		margin-top: 150px;
+		width: 100%;
+	}
 
+	#best #best_poem, #best_story { 
+		width: 100%;
+	}
+	#best #best_poem {
+		margin-bottom: 80px;
+	}
+
+	#intro #menual {
+		width: 100%;
+		margin-top: 80px;
+	}
+	
+	#start #login, #start #regist {
+		width: 100%;
+	}
+	#start #login {
+		margin-bottom: 80px;
+	}
+	#start #regist {
+		margin-bottom: 150px;
+	}
+}
 
 
 

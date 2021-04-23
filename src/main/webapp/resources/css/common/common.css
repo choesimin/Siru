@@ -52,6 +52,7 @@ a {
 #wrapper {
     width: 70%;
     margin: auto;
+    padding-top: 80px;
 }
 #siru {
     padding-left: 70px;
@@ -112,8 +113,11 @@ a {
 	transition: 0.2s;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 600px) {
 	#wrapper {
 		width: 95%;
+	}
+	#siru {
+		display: none;
 	}
 }

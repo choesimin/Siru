@@ -1,7 +1,5 @@
-/* 글쓰기 영역 */
 #write_form {
 	margin: auto;
-	width: 90%;
 	height: 100%;
 }
 #mode {
@@ -67,5 +65,7 @@ textarea::placeholder {
 }
 
 @media screen and (max-width: 600px) {
-
+	textarea {
+		padding: 30px 20px;
+	}	
 }
