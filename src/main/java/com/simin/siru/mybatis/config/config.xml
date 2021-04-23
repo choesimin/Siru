@@ -9,6 +9,7 @@
 		<typeAlias type="com.simin.siru.model.domain.Story" alias="Story"/>
 		<typeAlias type="com.simin.siru.model.domain.Comment" alias="Comment"/>
 		<typeAlias type="com.simin.siru.model.domain.Like" alias="Like"/>
+		<typeAlias type="com.simin.siru.model.domain.Banner" alias="Banner"/>
 	</typeAliases>
 	<mappers>
 		<mapper resource="com/simin/siru/mybatis/mapper/MemberMapper.xml"/>
@@ -16,5 +17,6 @@
 		<mapper resource="com/simin/siru/mybatis/mapper/StoryMapper.xml"/>
 		<mapper resource="com/simin/siru/mybatis/mapper/CommentMapper.xml"/>
 		<mapper resource="com/simin/siru/mybatis/mapper/LikeMapper.xml"/>
+		<mapper resource="com/simin/siru/mybatis/mapper/BannerMapper.xml"/>
 	</mappers>
 </configuration>

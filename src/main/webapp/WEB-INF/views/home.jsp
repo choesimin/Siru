@@ -1,3 +1,4 @@
+<%@page import="com.simin.siru.model.domain.Banner"%>
 <%@page import="com.simin.siru.model.domain.Poem"%>
 <%@page import="com.simin.siru.model.domain.Story"%>
 <%@page import="java.util.List"%>
@@ -9,7 +10,7 @@
 	List<Story> story_list = (List<Story>)request.getAttribute("story_list");
 	Poem[] poem_best_five = (Poem[])request.getAttribute("poem_best_five");
 	Story[] story_best_five = (Story[])request.getAttribute("story_best_five");
-	Poem poem_main = (Poem)request.getAttribute("poem_main");
+	Banner banner = (Banner)request.getAttribute("banner");
 %>
 <!DOCTYPE html>
 <html>
@@ -27,17 +28,11 @@
 			<div id="welcome">
 				<h2><span class="color_yellow font_weight_bolder">시</span>와 <span class="color_yellow font_weight_bolder">글</span>이<br/>모이는 곳</h2>
 			</div>
-			<div id="poem">
-				<h2 class="color_yellow">하루</h2>
+			<div id="banner">
+				<h2 class="color_yellow"><%=banner.getTitle() %></h2>
+				<p><%=banner.getWriter() %></p>
 				<pre>
-흙과 섞이어 자연으로 누울
-내가 보이는데
-흔적을 구하려는 옳지 않음이
-옳음처럼 나를 결박합니다
-띠를 두른 흙냄새가
-목을 감아도
-묶어서 던져 버리지 못하는
-오늘은 옳지 않음의 반복입니다
+<%=banner.getContent() %>
 				</pre>
 			</div>
 		</div>
@@ -141,6 +136,7 @@
 			<a href="/admin/poem/list">작품 관리</a>
 			<a href="/admin/story/list">이야기 관리</a>
 			<a href="/admin/member/list">회원 관리</a>
+			<a href="/admin/banner/regist/form">배너 관리</a>
 			<%} %>
 		</div>
 		<%} %>

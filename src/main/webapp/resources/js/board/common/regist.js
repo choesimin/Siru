@@ -4,7 +4,11 @@ function regist() {
 	var title = $("input[name='title'");
 	var content = $("textarea[name='content'");
 
-	if (title.val() != "" && content.val() != "") {
+	if (title.val() == "") {
+		title.focus();
+	} else if (content.val() == "") {
+		content.focus();
+	} else {
 		if (flag == true) {
 			$("#write_form").attr({
 				action : "/user/board/poem/regist",
@@ -20,10 +24,6 @@ function regist() {
 		} else {
 			$("#regist_button").html("선택 필수");
 		}
-	} else if (title.val() == "") {
-		title.focus();
-	} else if (content.val() == "") {
-		content.focus();
 	}
 }
 

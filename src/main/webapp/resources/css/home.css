@@ -24,18 +24,25 @@
 	line-height: 40px;
 }
 
-#main #poem {
+#main #banner {
 	float: right;
 	margin-top: 150px;
 	width: 40%;
 }
 
-#main #poem h2 {
+#main #banner h2 {
 	font-size: 50px;
 	margin-bottom: 50px;
 }
 
-#main #poem pre {
+#main #banner p {
+	font-size: 16px;
+	opacity: 0.8;
+	text-align: right;
+	margin-bottom: 20px;
+}
+
+#main #banner pre {
 	line-height: 50px;
 }
 

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Banner">
+
+	<insert id="insert" parameterType="Banner">
+		insert into banner(title, content, writer)
+		values(#{title}, #{content}, #{writer})
+	</insert>
+	
+	<select id="selectAll" resultType="Banner">
+		select title, content, writer from banner
+		order by banner_id desc
+	</select>
+	
+</mapper>

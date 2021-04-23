@@ -11,9 +11,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.simin.siru.model.common.Pager;
+import com.simin.siru.model.domain.Banner;
 import com.simin.siru.model.domain.Member;
 import com.simin.siru.model.domain.Poem;
 import com.simin.siru.model.domain.Story;
+import com.simin.siru.model.service.BannerService;
 import com.simin.siru.model.service.MemberService;
 import com.simin.siru.model.service.PoemService;
 import com.simin.siru.model.service.StoryService;
@@ -29,6 +31,9 @@ public class AdminController {
 	
 	@Autowired
 	private StoryService storyService;
+	
+	@Autowired
+	private BannerService bannerService;
 	
 	@RequestMapping(value = "/poem/list", method = RequestMethod.GET)
 	public ModelAndView getPoemList(HttpServletRequest request) {
@@ -103,5 +108,24 @@ public class AdminController {
 		
 		return mav;
 	}
+	
+	@RequestMapping(value = "/banner/regist/form", method = RequestMethod.GET)
+	public ModelAndView getBannerRegistForm(HttpServletRequest request) {
+		ModelAndView mav = new ModelAndView();
+		Banner banner = bannerService.getRecent();
+		
+		mav.setViewName("admin/banner/regist");
+		mav.addObject("banner", banner);
+		
+		return mav;
+	}
+	
+	@RequestMapping(value = "/banner/regist", method = RequestMethod.POST)
+	public String registBanner(HttpServletRequest request, Banner banner) {
+		bannerService.regist(banner);
+		
+		return "redirect:/user/home";
+	}
+	
 
 }
