@@ -220,7 +220,7 @@
 	color: #fbbd0d;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 800px) {
 	#main #banner {
 		margin-top: 150px;
 		width: 100%;
