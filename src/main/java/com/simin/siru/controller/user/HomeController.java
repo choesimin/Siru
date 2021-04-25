@@ -39,8 +39,8 @@ public class HomeController {
 		
 		mav.setViewName("home");
 
-		mav.addObject("poem_list", poem_list);
-		mav.addObject("story_list", story_list);
+		mav.addObject("poem_count", poem_list.size());
+		mav.addObject("story_count", story_list.size());
 		mav.addObject("poem_best_five", poem_best_five);
 		mav.addObject("story_best_five", story_best_five);
 		mav.addObject("banner", banner);

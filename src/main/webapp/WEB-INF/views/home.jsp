@@ -6,8 +6,8 @@
 <%@ page import="com.simin.siru.model.domain.Member"%>
 <%
 	Member member_home = (Member)session.getAttribute("member");
-	List<Poem> poem_list = (List<Poem>)request.getAttribute("poem_list");
-	List<Story> story_list = (List<Story>)request.getAttribute("story_list");
+	int poem_count = (Integer)request.getAttribute("poem_count");
+	int story_count = (Integer)request.getAttribute("story_count");
 	Poem[] poem_best_five = (Poem[])request.getAttribute("poem_best_five");
 	Story[] story_best_five = (Story[])request.getAttribute("story_best_five");
 	Banner banner = (Banner)request.getAttribute("banner");
@@ -38,7 +38,7 @@
 		</div>
 		<%} %>
 		<div id="best">
-			<h2><%=poem_list.size() %>편의 작품, <%=story_list.size() %>개의 이야기.</h2>
+			<h2><%=poem_count %>편의 작품, <%=story_count %>개의 이야기.</h2>
 			<div id="best_poem">
 				<h3>공감 작품</h3>
 				<%for (int i = 0; i < poem_best_five.length; i++) { %>
@@ -66,13 +66,12 @@
 					2021년 봄에 탄생한 시루는 <br/>
 					읽고 쓰기를 좋아하는 대학생이 만들었습니다.<br/>
 					<br/>
-					누구든 마음 속에 작가를 품고 있습니다.<br/>
-					마음 속의 작가가 활약할 수 있도록<br/>
-					무대를 마련하고 싶었습니다.<br/>
+					누구든 마음 속엔 작가를 품고 있습니다.<br/>
+					시루는 그 무대가 되고 싶습니다.<br/>
 					<br/>
-					지나가는 일상의 대화조차
+					지나가는 일상의 대화조차</br>
 					어떤 이에겐 명작으로 그려질 수 있습니다.<br/>
-					글이라는 도구로 당신을 표현해보세요.<br/>
+					글로 당신을 표현해보세요.<br/>
 				</p>
 			</div>
 			<div id="menual">
