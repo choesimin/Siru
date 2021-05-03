@@ -5,7 +5,7 @@
 <%@ page contentType="text/html;charset=UTF-8"%>
 <%@ page import="com.simin.siru.model.domain.Member"%>
 <%
-	Member member_home = (Member)session.getAttribute("member");
+	Member member_index = (Member)session.getAttribute("member");
 	int poem_count = (Integer)request.getAttribute("poem_count");
 	int story_count = (Integer)request.getAttribute("story_count");
 	Poem[] poem_best_five = (Poem[])request.getAttribute("poem_best_five");
@@ -16,14 +16,14 @@
 <html>
 <head>
 <%@ include file="./common/header.jsp"%>
-<link rel="stylesheet" type="text/css" href="/resources/css/home.css">
-<script src="/resources/js/home.js"></script>
+<link rel="stylesheet" type="text/css" href="/resources/css/index.css">
+<script src="/resources/js/index.js"></script>
 </head>
 <body>
 	<%@ include file="./common/nav_bar.jsp"%>
 	<%@ include file="./common/write_button.jsp"%>
 	<div id="wrapper">
-		<%if (member_home == null) { %>
+		<%if (member_index == null) { %>
 		<div id="main">
 			<div id="welcome">
 				<h2><span class="color_yellow font_weight_bolder">시</span>와 <span class="color_yellow font_weight_bolder">글</span>이<br/>모이는 곳</h2>
@@ -58,7 +58,7 @@
 				<%} %>
 			</div>
 		</div>
-		<%if (member_home == null) { %>
+		<%if (member_index == null) { %>
 		<div id="intro">
 			<div id="birth">
 				<h4>시루는.</h4>
@@ -69,7 +69,7 @@
 					누구든 마음 속엔 작가를 품고 있습니다.<br/>
 					시루는 그 무대가 되고 싶습니다.<br/>
 					<br/>
-					지나가는 일상의 대화조차</br>
+					지나가는 일상의 대화조차<br/>
 					어떤 이에겐 명작으로 그려질 수 있습니다.<br/>
 					글로 당신을 표현해보세요.<br/>
 				</p>
@@ -77,7 +77,7 @@
 			<div id="menual">
 				<h4>시루 사용법.</h4>
 				<p>
-					시루의 첫 화면은 언제나 짧은 글 한 편이 차지합니다.<br/>
+					시루의 첫 화면은 짧은 글 한 편이 차지합니다.<br/>
 					읽어보며 하루를 정리해보세요.<br/>
 					<br/>
 					생각이 든다면<br/>
@@ -129,7 +129,7 @@
 			<a href="/user/my/poem/list">내 작품</a>
 			<a href="/user/my/story/list">내 이야기</a>
 			<a href="/user/my/information">내 정보</a>
-			<%if (member_home.getId().equals("administrator")) { %>
+			<%if (member_index.getId().equals("administrator")) { %>
 			<br/>
 			<br/>
 			<a href="/admin/poem/list">작품 관리</a>

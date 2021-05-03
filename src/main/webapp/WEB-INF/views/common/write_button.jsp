@@ -6,5 +6,5 @@
 <%if (member_write != null) { %>
 <a href="/user/board/regist/form" id="write_button">글쓰기</a>
 <%} else { %>
-<a href="/user/home#start" id="write_button">글쓰기</a>
+<a href="/#start" id="write_button">글쓰기</a>
 <%} %>

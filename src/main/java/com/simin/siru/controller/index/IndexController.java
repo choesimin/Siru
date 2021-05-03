@@ -1,4 +1,4 @@
-package com.simin.siru.controller.user;
+package com.simin.siru.controller.index;
 
 import java.util.List;
 
@@ -16,7 +16,7 @@ import com.simin.siru.model.service.PoemService;
 import com.simin.siru.model.service.StoryService;
 
 @Controller
-public class HomeController {
+public class IndexController {
 	
 	@Autowired
 	private PoemService poemService;
@@ -27,8 +27,8 @@ public class HomeController {
 	@Autowired
 	private BannerService bannerService;
 	
-	@RequestMapping(value = "/home", method = RequestMethod.GET)
-	public ModelAndView home() {
+	@RequestMapping(value = "/", method = RequestMethod.GET)
+	public ModelAndView index() {
 		ModelAndView mav = new ModelAndView();
 		
 		List<Poem> poem_list = poemService.getList();
@@ -37,7 +37,7 @@ public class HomeController {
 		Story[] story_best_five = storyService.getBestFive();
 		Banner banner = bannerService.getRecent();
 		
-		mav.setViewName("home");
+		mav.setViewName("index");
 
 		mav.addObject("poem_count", poem_list.size());
 		mav.addObject("story_count", story_list.size());

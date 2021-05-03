@@ -69,7 +69,7 @@ public class MemberServiceImpl implements MemberService {
 			code = 2;
 		} else if (member_result != null) {
 			session.setAttribute("member", member_result);
-			url = "/user/home";
+			url = "/";
 			code = 10;
 		}
 		

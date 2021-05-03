@@ -124,7 +124,7 @@ public class AdminController {
 	public String registBanner(HttpServletRequest request, Banner banner) {
 		bannerService.regist(banner);
 		
-		return "redirect:/user/home";
+		return "redirect:/";
 	}
 	
 

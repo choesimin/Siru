@@ -16,7 +16,7 @@ public class MemberController {
 
 		session.removeAttribute("member");
 		
-		return "redirect:/user/home";
+		return "redirect:/";
 	}
 	
 }

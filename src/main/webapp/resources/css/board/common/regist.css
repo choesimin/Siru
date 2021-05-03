@@ -2,6 +2,7 @@
 	margin: auto;
 	height: 100%;
 }
+
 #mode {
 	float: left;
 	width: 200px;
@@ -9,18 +10,21 @@
 	border: 1px solid #fbbd0dbf;
 	border-radius: 5px;
 }
+
 #poem_mode {
 	height: 100%;
 	padding: 11px 0;
 	width: 50%;
 	float: left;
 }
+
 #story_mode {
 	height: 100%;
 	padding: 11px 0;
 	width: 50%;
 	float: right;
 }
+
 #regist_button {
 	float: right;
 	padding: 10px 30px;
@@ -32,10 +36,12 @@
 	color: #faf5e6;
 	outline: 0;
 }
+
 #regist_button:hover {
 	color: #fbbd0d;
 	transition: 0.2s;
 }
+
 input[type="text"] {
 	width: 100%;
 	border: 1px solid #fbbd0dbf;
@@ -47,6 +53,7 @@ input[type="text"] {
 	color: #faf5e6;
 	outline: none;
 }
+
 textarea {
 	width: 100%;
 	height: 600px;
@@ -60,6 +67,7 @@ textarea {
 	resize: vertical;
 	outline: none;
 }
+
 textarea::placeholder {
 	padding: 0;
 }

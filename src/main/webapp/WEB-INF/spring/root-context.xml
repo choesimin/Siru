@@ -13,7 +13,6 @@
 		<property name="suffix" value=".jsp"/>
 	</bean>
 	
-	
 
 	<bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
 		<property name="jndiName" value="java:comp/env/jdbc/mysql"/>
@@ -33,11 +32,8 @@
 	</bean>
 	
 	
-	
 	<bean id="globalExceptionHandler" class="com.simin.siru.aop.GlobalExceptionHandler"/>
 	
 	<bean id="memberSessionCheckAspect" class="com.simin.siru.aop.MemberSessionCheckAspect"/>
-	
-
 	
 </beans>
