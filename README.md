@@ -1,6 +1,7 @@
-Siru Making History
+Siru Project Making History
 =============
 
+---
 
 기획 배경
 -------------
@@ -34,6 +35,7 @@ Siru Making History
 - 글을 쓰고 나눌 수 있는 플랫폼 제공
 - 0부터 100까지 혼자 서비스를 만들어보는 경험
 
+---
 
 Benchmarking
 -------------
@@ -47,6 +49,7 @@ Benchmarking
 - Pinterst (masonry layout의 시조격 사이트)
 	- 게시물을 작품 전시하듯 배치
 
+---
 
 User eXperience 설계
 -------------
@@ -66,6 +69,7 @@ User eXperience 설계
 	- 주 사용자가 한국인이기 때문에 중간중간 나오는 알파벳은 분위기를 깰 수 있음
 	- 닉네임은 길이, 띄어쓰기 등에서 자유도를 주지만 한글만 가능하도록 함
 
+---
 
 User Interface 설계
 -------------
@@ -82,6 +86,7 @@ User Interface 설계
 	- 노을 색에서 노란 색의 느낌을 가져와서 선정
 	- 진한 황금색
 
+---
 
 Logo 디자인
 -------------
@@ -90,11 +95,13 @@ Logo 디자인
 - "시루"의 "ㅅ"과 "ㄹ"을 이미지화
 - 바다를 앞에 둔 산 뒤로 해가 지는 모습
 
+---
 
 User Interface 구현
 -------------
 - HTML5, CSS, Vanilla JS+ JQuery 사용
 
+---
 
 Server 환경
 -------------
@@ -111,6 +118,7 @@ Server 환경
 	- 오픈 소스 라이센스를 따르기 때문에 무료로 사용 가능
 	- Ubuntu 서버 환경 터미널에서 간편하게 설치 가능
 
+---
 
 Backend 구성
 -------------
@@ -126,10 +134,11 @@ Backend 구성
 	- SQL Query문을 한 파일에서 관리 -> 유지보수성 좋음
 	- collection, association 태그 적극 활용
 
+---
 
 DataBase 설계 및 구현
 -------------
-- member : 최상위 table
+- member
 	- member_id : primary key
 	- id
 		- 사용자 아이디
@@ -199,27 +208,40 @@ DataBase 설계 및 구현
 		- 메인 작품의 작성자
 - 사용한 쿼리는 queryscript에서 관리
 
-
+---
 
 Board 기능 구현
 -------------
+- 글 쓰기
 
 
+Comment 기능 구현
+-------------
+
+
+
+---
 
 Login 기능 구현
 -------------
 
 
+---
 
 Admin 관리 기능 구현
 -------------
 
 
+---
 
 Like 기능 구현
 -------------
 
 
+---
 
 Banner 기능 구현
 -------------
+
+
+
