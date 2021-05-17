@@ -308,11 +308,26 @@ DataBase 설계 및 구현
 
 배포
 -------------
+- Apache Tomcat 9.0
+	- 프로젝트를 .war 파일로 export하여 webapps 폴더에 저장
+	- 80번 포트에 대한 접근을 현재 프로젝트로 바꾸어야 하므로, webapps 폴더의 기존 ROOT 폴더를 삭제
+		- ROOT 폴더를 지우지 않으면 80번 포트로 접속할 때, Tomcat 서버의 관리자 페이지가 나옴
 - AWS EC2
-	- Ubuntu 20.04 LTS
+	- Instance (Ubuntu 20.04 LTS)
+		- ssh : 개발 pc와 서버 인스턴스에 원격 접속 (발급받은 .pem security key 필요)
+		- scp : 개발 pc와 서버 인스턴스 간의 파일 원격 전송 (발급받은 .pem security key 필요)
+		- iptable
+			- 80번 포트를 사용했을 때, url에 포트 번호를 붙이지 않고 접속 가능
+			- Tomcat을 사용했기 때문에 접근이 8080번 포트로 들어오지만, iptable 설정으로 접근을 80번 포트로 다시 돌려줌
+			- 보통 NginX를 많이 사용하지만, 단순히 포트를 돌려주는 역할만 필요하기 때문에 iptable 사용
 	- Load Balancer
+		- 원래 기능 : 트래픽이 한 곳으로 몰리는 것을 분산시켜 과부하를 방지
+		- 현재 프로젝트에선 기존 80번 포트로의 접근(http)을 443번 포트(https)로 돌려주는 역할을 함
 - AWS Route53
-- AWS Certificate
+	- siru.link에 ELB(Elastic Load Balancer)를 연결
+- AWS Certificate Manager
+	- https 접속을 위한 SSL 인증서 발급
+	- AWS에서 Amazon certification을 사용하면, 서버 환경에 따로 설정 없이 AWS 내에서 https로 변환 가능
 
 ---
 
