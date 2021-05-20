@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Like">
+
+	<insert id="insertByPoemId" parameterType="Like">
+		insert into likes(member_id, poem_id)
+		values(#{member_id}, #{poem_id})
+	</insert>
+	<insert id="insertByStoryId" parameterType="Like">
+		insert into likes(member_id, story_id)
+		values(#{member_id}, #{story_id})
+	</insert>
+
+
+	<select id="countByPoemId" parameterType="int" resultType="int">
+		select count(*) from likes
+		where poem_id = #{poem_id}
+	</select>
+	<select id="countByStoryId" parameterType="int" resultType="int">
+		select count(*) from likes
+		where story_id = #{story_id}
+	</select>
+	
+	
+	<select id="selectPoemOrderByCount" resultType="Like">
+		select poem_id, count(*) as count
+		from likes
+		where (poem_id is not null)
+			and (date between date_add(now(), interval - 1 month) and now())
+		group by poem_id
+		order by count desc
+	</select>
+	<select id="selectStoryOrderByCount" resultType="Like">
+		select story_id, count(*) as count
+		from likes
+		where (story_id is not null)
+			and (date between date_add(now(), interval - 1 month) and now())
+		group by story_id
+		order by count desc
+	</select>
+
+	
+	<select id="selectByMemberIdAndPoemId" parameterType="Like" resultType="Like">
+		select member_id, poem_id from likes
+		where member_id = #{member_id} and poem_id = #{poem_id}
+	</select>
+	<select id="selectByMemberIdAndStoryId" parameterType="Like" resultType="Like">
+		select member_id, story_id from likes
+		where member_id = #{member_id} and story_id = #{story_id}
+	</select>
+	
+	
+	<delete id="delete" parameterType="Like">
+		delete from likes
+		where member_id = #{member_id} 
+			and (story_id = #{story_id} or poem_id = #{poem_id})
+	</delete>
+
+
+</mapper>

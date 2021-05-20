@@ -1,0 +1,31 @@
+#board_title {
+	padding-bottom: 30px;
+	text-align: center;
+	font-size: 40px;
+}
+
+#board {
+	width: 100%;
+}
+
+.post {
+	display: block;
+	width: 100%;
+	padding: 20px 0;
+	border-top: 1px solid #fbbd0dbf;
+	text-align: center;
+}
+
+.post:hover {
+	color: #fbbd0d;
+	transition: 0.2s;
+}
+
+.post .date {
+	margin-left: 30px;
+	font-size: 12px;
+	opacity: 0.8;
+}
+
+
+

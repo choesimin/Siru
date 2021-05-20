@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Story">
+
+	<insert id="insert" parameterType="Story">
+		insert into story(member_id, title, content)
+		values(#{member_id}, #{title}, #{content})
+	</insert>
+	
+	<sql id="selectCommon">
+		select story_id, member_id, title, content, date from story
+	</sql>
+	
+	<resultMap type="Story" id="storyMemberMap">
+		<id column="story_id" property="story_id"/>
+		<result column="story_id" property="story_id"/>
+		<result column="title" property="title"/>
+		<result column="content" property="content"/>
+		<result column="date" property="date"/>
+		<association column="member_id" property="member" javaType="Member" select="Member.select"/>
+	</resultMap>
+	
+	<select id="selectAll" resultMap="storyMemberMap">
+		<include refid="selectCommon"/>
+		order by story_id desc
+	</select>
+	
+	<select id="select" parameterType="int" resultMap="storyMemberMap">
+		<include refid="selectCommon"/>
+		where story_id = #{story_id}
+	</select>
+
+	<select id="selectByMemberIdOrderByDate" parameterType="int" resultMap="storyMemberMap">
+		<include refid="selectCommon"/>
+		where member_id = #{member_id}
+		order by date desc
+	</select>
+	
+	<update id="update" parameterType="Story">
+		update story set title = #{title}, content = #{content}
+		where story_id = #{story_id}
+	</update>
+	
+	<delete id="delete" parameterType="int">
+		delete from story
+		where story_id = #{story_id}
+	</delete>
+
+</mapper>
