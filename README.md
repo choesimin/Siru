@@ -345,19 +345,13 @@ DataBase 설계 및 구현
 
 Trouble Shooting
 -------------
-- 502 bad gateway?????????????????
+- Domain 접근 불가
+	- 인증 이메일을 확인하는 것을 잊음
+		- 받은 이메일 확인하여 인증 링크로 인증 완료
+	- status : clientTransferProhibited
+		- 도메인의 기관이전 잠금이 설정되어 있다는 것을 의미
+		- 이전 잠금 비활성화하여 해결
 
-
-
-
-
-
-
-
-
-
-
-
-
+		
 
 
