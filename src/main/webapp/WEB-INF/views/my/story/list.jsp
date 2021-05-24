@@ -41,28 +41,28 @@
 		<div id="page_box">
 			<%if (pager.getCurrentPage() > pager.getBlockSize()) { %>
 			<a href="/user/my/story/list?currentPage=1">
-				<div class="page"><<</div>
+				<span class="page"><<</span>
 			</a>
 			<a href="/user/my/story/list?currentPage=<%=pager.getFirstPage() - 1 %>">
-				<div class="page"><</div>
+				<span class="page"><</span>
 			</a>
 			<%} %>
 
 			<%for (int i = pager.getFirstPage(); i <= pager.getLastPage(); i++) { %>
 			<%if (i > pager.getTotalPage()) {break;} %>
 			<a href="/user/my/story/list?currentPage=<%=i %>">
-				<div class="page <%if (pager.getCurrentPage() == i) { %>page_active<%} %>">
+				<span class="page <%if (pager.getCurrentPage() == i) { %>page_active<%} %>">
 				<%=i %>
-				</div>
+				</span>
 			</a>
 			<%} %>
 
 			<%if (pager.getCurrentPage() <= pager.getTotalPage() - (pager.getTotalPage() % pager.getBlockSize())) { %>
 			<a href="/user/my/story/list?currentPage=<%=pager.getLastPage() + 1 %>">
-				<div class="page">></div>
+				<span class="page">></span>
 			</a>
 			<a href="/user/my/story/list?currentPage=<%=pager.getTotalPage() %>">
-				<div class="page">>></div>
+				<span class="page">>></span>
 			</a>
 			<%} %>
 		</div>

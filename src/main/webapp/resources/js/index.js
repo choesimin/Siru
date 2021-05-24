@@ -200,7 +200,7 @@ function onlyHangul(obj) {
 	obj.value = obj.value.replace(/[a-z0-9]|[\[\]{}()<>?|`~!@#$%^&*-_+=,.;:\"'\\]/g, "");
 }
 
-$(function(){
+$(function() {
 	$("#regist_button").on("click", function() {
 		regist();
 	});
@@ -208,6 +208,14 @@ $(function(){
 	$("#login_button").on("click", function() {
 		login();
 	});
+
+	$("#password_login").keyup(
+		function(e) {
+			if(e.keyCode == 13) {
+				login();
+			}
+		}
+	);
 
 	$(".no_space").on("keyup paste", function() {
 		for (var i = 0; i < 50; i++) {
